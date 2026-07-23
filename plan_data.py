@@ -47,7 +47,7 @@ PLAN = [
                 "done": False,
                 "note": "also satisfies BMED-ENG 241 — send transcript ASAP",
             },
-            {"code": "M&I-ENG 230", "title": "Thermodynamics", "credits": 3, "done": False, "note": "send transcript ASAP"},
+            {"code": "M&I-ENG 230", "title": "Thermodynamics", "credits": 3, "done": False, "note": "send transcript ASAP", "elective": "BME"},
             {"code": "MATH 331", "title": "Differential Equations", "credits": 3, "done": False, "note": "send transcript ASAP"},
         ],
     },
@@ -58,7 +58,7 @@ PLAN = [
             {"code": "M&I-ENG 124", "title": "Computational Approaches to Engineering", "credits": 3, "done": False},
             {"code": "M&I-ENG 302", "title": "ME Lab I", "credits": 3, "done": False},
             {"code": "M&I-ENG 310", "title": "Dynamics", "credits": 3, "done": False, "req": "M&I-ENG 124 (concurrent, Fall 2)"},
-            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False, "req": "M&I-ENG 230 (pending transcript)"},
+            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False, "req": "M&I-ENG 230 (pending transcript)", "elective": "BME"},
         ],
     },
     {
@@ -84,6 +84,7 @@ PLAN = [
                 "done": False,
                 "offered": "F",
                 "req": "E&C-ENG 361",
+                "elective": "BME",
             },
             {
                 "code": "M&I-ENG 510+",
@@ -92,6 +93,7 @@ PLAN = [
                 "done": False,
                 "offered": "F",
                 "req": "E&C-ENG 201 (or MATH 331) or M&I-ENG 310 (or 344)",
+                "elective": "ME",
             },
         ],
     },
@@ -107,8 +109,8 @@ PLAN = [
     {
         "term": "Summer 3",
         "courses": [
-            {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False},
-            {"code": "ME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False},
+            {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
+            {"code": "ME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
         ],
     },
     {
@@ -118,8 +120,8 @@ PLAN = [
             {"code": "BMED-ENG 414", "title": "Senior Design I", "credits": 3, "done": False, "req": "BMED-ENG 275, all BME 3xx completed/concurrent"},
             {"code": "M&I-ENG 375", "title": "Manufacturing Processes", "credits": 3, "done": False},
             {"code": "M&I-ENG 402", "title": "ME Lab II", "credits": 3, "done": False, "req": "M&I-ENG 302"},
-            {"code": "BME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False},
-            {"code": "ME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False},
+            {"code": "BME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
+            {"code": "ME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
         ],
     },
     {
@@ -128,8 +130,8 @@ PLAN = [
             {"code": "BMED-ENG 430", "title": "Systems Biology", "credits": 3, "done": False, "req": "BMED-ENG 330"},
             {"code": "BMED-ENG 415", "title": "Senior Design II", "credits": 3, "done": False, "note": "Integrative Experience", "req": "BMED-ENG 414"},
             {"code": "M&I-ENG 415", "title": "Design of Mechanical Systems", "credits": 3, "done": False, "note": "capstone", "req": "M&I-ENG 413"},
-            {"code": "BME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False},
-            {"code": "ME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False},
+            {"code": "BME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
+            {"code": "ME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
         ],
     },
 ]

@@ -136,12 +136,31 @@ function render(PLAN) {
 
   let totalCredits = 0;
   let doneCredits = 0;
+  const electiveStats = {
+    BME: { count: 0, credits: 0, required: 5, requiredCredits: 15 },
+    ME: { count: 0, credits: 0, required: 4, requiredCredits: 12 },
+  };
 
   PLAN.forEach((termData) => {
     termData.courses.forEach((course) => {
       totalCredits += course.credits;
       if (course.done) doneCredits += course.credits;
+      if (course.elective && electiveStats[course.elective]) {
+        electiveStats[course.elective].count += 1;
+        electiveStats[course.elective].credits += course.credits;
+      }
     });
+  });
+
+  ["BME", "ME"].forEach((major) => {
+    const s = electiveStats[major];
+    const pct = Math.min(100, Math.round((s.count / s.required) * 100));
+    const over = s.count > s.required;
+    document.getElementById(`${major.toLowerCase()}ElectiveText`).textContent = `${s.count}/${s.required}`;
+    document.getElementById(`${major.toLowerCase()}ElectiveCr`).textContent = `${s.credits}/${s.requiredCredits} cr`;
+    const fill = document.getElementById(`${major.toLowerCase()}ElectiveFill`);
+    fill.style.width = pct + "%";
+    fill.classList.toggle("over", over);
   });
 
   const stackTerms = ["Fall 1", "Spring 1", "Summer 1 (transfer)"];

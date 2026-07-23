@@ -50,6 +50,17 @@
     font-size: 13px; white-space: nowrap;
   }
   .nav-student { justify-self: end; }
+  .elective-card {
+    display: flex !important; flex-direction: row !important; gap: 24px;
+    margin-bottom: 20px; padding: 10px 16px; align-items: center; flex-wrap: wrap;
+  }
+  .elective-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+  .elective-track {
+    width: 90px; height: 5px; border-radius: 8px; overflow: hidden;
+    background: var(--color-neutral-800);
+  }
+  .elective-fill { height: 100%; background: var(--color-accent); }
+  .elective-fill.over { background: var(--color-amber, #e0a458); }
 </style>
 </head>
 <body>
@@ -77,6 +88,22 @@
       <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
       <span class="text-muted" id="progressText" style="font-size:11px;white-space:nowrap">0 / 0 credits</span>
       <span class="text-muted" style="font-size:11px;white-space:nowrap">Target: Spring 4</span>
+    </div>
+
+    <div class="card elev-sm elective-card">
+      <span class="card-title" style="font-size:13px">Tech Electives</span>
+      <div class="elective-row">
+        <span class="text-muted">BME</span>
+        <span id="bmeElectiveText" style="font-weight:500">0/5</span>
+        <div class="elective-track"><div class="elective-fill" id="bmeElectiveFill" style="width:0%"></div></div>
+        <span class="text-muted" id="bmeElectiveCr"></span>
+      </div>
+      <div class="elective-row">
+        <span class="text-muted">ME</span>
+        <span id="meElectiveText" style="font-weight:500">0/4</span>
+        <div class="elective-track"><div class="elective-fill" id="meElectiveFill" style="width:0%"></div></div>
+        <span class="text-muted" id="meElectiveCr"></span>
+      </div>
     </div>
 
     <div class="flag-box">
