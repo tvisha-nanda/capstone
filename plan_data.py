@@ -21,7 +21,13 @@ PLAN = [
             {"code": "PHYSICS 152", "title": "General Physics II", "credits": 4, "done": True},
             {"code": "M&I-ENG 201", "title": "Intro to Materials Science", "credits": 3, "done": True},
             {"code": "M&I-ENG 210", "title": "Statics", "credits": 3, "done": True},
-            {"code": "M&I-ENG 273", "title": "Probability & Statistics for Engineers", "credits": 3, "done": True},
+            {
+                "code": "M&I-ENG 273",
+                "title": "Probability & Statistics for Engineers",
+                "credits": 3,
+                "done": True,
+                "note": "advisor-confirmed substitution for BME's STAT 315 requirement",
+            },
             {
                 "code": "HM&FNART 102",
                 "title": "Traversing Differences: Global",
@@ -76,7 +82,6 @@ PLAN = [
         "courses": [
             {"code": "M&I-ENG 313", "title": "Design of Mechanical Components", "credits": 3, "done": False},
             {"code": "M&I-ENG 395A", "title": "Seminar: Engineering Professionalism", "credits": 1, "done": False},
-            {"code": "STAT 315", "title": "Statistics", "credits": 3, "done": False},
             {"code": "BME TECH ELEC #1", "title": "Technical elective (e.g. MIE 685 Biorobotics)", "credits": 3, "done": False},
             {"code": "ME TECH ELEC #1", "title": "Technical elective", "credits": 3, "done": False},
         ],
