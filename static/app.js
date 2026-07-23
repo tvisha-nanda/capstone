@@ -69,15 +69,14 @@ function render(PLAN) {
 
   PLAN.forEach((termData) => {
     const termCredits = termData.courses.reduce((s, c) => s + c.credits, 0);
-    const isCollapsed = termData.status === "complete";
 
     termData.courses.forEach((course) => {
       totalCredits += course.credits;
-      if (termData.status === "complete" || course.done) doneCredits += course.credits;
+      if (course.done) doneCredits += course.credits;
     });
 
     const termEl = document.createElement("div");
-    termEl.className = "card elev-sm term-card" + (isCollapsed ? " collapsed" : "");
+    termEl.className = "card elev-sm term-card";
 
     const head = document.createElement("div");
     head.className = "term-head";
@@ -92,29 +91,26 @@ function render(PLAN) {
     head.addEventListener("click", () => openExpand(termData, termCredits));
     termEl.appendChild(head);
 
-    if (!isCollapsed) {
-      const courses = document.createElement("div");
-      courses.style.cssText = "display:flex;flex-direction:column;gap:6px;margin-top:2px";
+    const courses = document.createElement("div");
+    courses.style.cssText = "display:flex;flex-direction:column;gap:6px;margin-top:2px";
 
-      termData.courses.forEach((course) => {
-        const row = document.createElement("div");
-        row.className = "card course-card";
-        row.innerHTML = `
-          <div style="font-size:13px;font-weight:500" class="course-title ${course.done ? "checked" : ""}">${course.code}</div>
-          <div class="text-muted" style="font-size:12px">${course.title}</div>
-          <div class="course-meta text-muted">
-            <span>${course.credits} cr</span>
-            ${course.note ? `<span class="tag tag-neutral">${course.note}</span>` : ""}
-            ${course.req ? `<span class="tag tag-outline">REQ: ${course.req}</span>` : ""}
-            ${course.coreq ? `<span class="tag tag-accent">CO-REQ: ${course.coreq}</span>` : ""}
-          </div>
-        `;
-        courses.appendChild(row);
-      });
+    termData.courses.forEach((course) => {
+      const row = document.createElement("div");
+      row.className = "card course-card";
+      row.innerHTML = `
+        <div style="font-size:13px;font-weight:500" class="course-title ${course.done ? "checked" : ""}">${course.code}</div>
+        <div class="text-muted" style="font-size:12px">${course.title}</div>
+        <div class="course-meta text-muted">
+          <span>${course.credits} cr</span>
+          ${course.note ? `<span class="tag tag-neutral">${course.note}</span>` : ""}
+          ${course.req ? `<span class="tag tag-outline">REQ: ${course.req}</span>` : ""}
+          ${course.coreq ? `<span class="tag tag-accent">CO-REQ: ${course.coreq}</span>` : ""}
+        </div>
+      `;
+      courses.appendChild(row);
+    });
 
-      termEl.appendChild(courses);
-    }
-
+    termEl.appendChild(courses);
     grid.appendChild(termEl);
   });
 

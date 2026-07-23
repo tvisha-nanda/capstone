@@ -29,11 +29,9 @@
   }
   .flag-box b { color: var(--color-accent-300); }
   .grid {
-    display: flex; align-items: flex-start; gap: 16px;
-    overflow-x: auto; padding-bottom: 12px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px; align-items: start;
   }
-  .term-card { flex: 0 0 260px; }
-  .term-card.collapsed { flex-basis: 190px; }
   .term-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
   .course-card {
     padding: 8px 10px; gap: 3px;
@@ -66,7 +64,7 @@
       <span style="letter-spacing:-0.02em">Capstone</span>
     </span>
     <h6 class="nav-degree">B.S. Mechanical Engineering + B.S. Biomedical Engineering</h6>
-    <span class="text-muted nav-student" style="font-size:13px">TVISHA NANDA · SPIRE 35078524 · BIOMECHATRONICS / ROBOTICS</span>
+    <span class="text-muted nav-student" style="font-size:13px">TVISHA NANDA · BIOMECHATRONICS / ROBOTICS</span>
   </nav>
 
   <div class="page">

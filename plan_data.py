@@ -1,7 +1,6 @@
 PLAN = [
     {
         "term": "Fall 1",
-        "status": "complete",
         "courses": [
             {"code": "MATH 131", "title": "Calculus I", "credits": 4, "done": True},
             {"code": "MATH 132", "title": "Calculus II", "credits": 4, "done": True},
@@ -17,7 +16,6 @@ PLAN = [
     },
     {
         "term": "Spring 1",
-        "status": "complete",
         "courses": [
             {"code": "CHEM 112", "title": "Chemistry II", "credits": 4, "done": True},
             {"code": "PHYSICS 152", "title": "General Physics II", "credits": 4, "done": True},
@@ -35,7 +33,6 @@ PLAN = [
     },
     {
         "term": "Summer 1 (transfer)",
-        "status": "in-progress",
         "courses": [
             {
                 "code": "M&I-ENG 211",
@@ -50,7 +47,6 @@ PLAN = [
     },
     {
         "term": "Fall 2",
-        "status": "in-progress",
         "courses": [
             {"code": "BMED-ENG 210", "title": "Intro to Biology for Engineers", "credits": 4, "done": False},
             {"code": "M&I-ENG 124", "title": "Computational Approaches to Engineering", "credits": 3, "done": False},
@@ -61,7 +57,6 @@ PLAN = [
     },
     {
         "term": "Spring 2",
-        "status": "planned",
         "courses": [
             {"code": "KIN 270", "title": "Anatomy & Physiology I", "credits": 4, "done": False},
             {"code": "GEN ED", "title": "Arts & Literature elective", "credits": 4, "done": False},
@@ -72,14 +67,12 @@ PLAN = [
     },
     {
         "term": "Summer 2",
-        "status": "planned",
         "courses": [
             {"code": "ENGIN 351", "title": "Writing in Engineering", "credits": 3, "done": False, "note": "offered in summer"},
         ],
     },
     {
         "term": "Fall 3",
-        "status": "planned",
         "courses": [
             {"code": "E&C-ENG 361", "title": "Electrical Engineering", "credits": 3, "done": False},
             {"code": "M&I-ENG 313", "title": "Design of Mechanical Components", "credits": 3, "done": False},
@@ -91,7 +84,6 @@ PLAN = [
     },
     {
         "term": "Spring 3",
-        "status": "planned",
         "courses": [
             {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "req": "E&C-ENG 361"},
             {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False},
@@ -102,7 +94,6 @@ PLAN = [
     },
     {
         "term": "Summer 3",
-        "status": "planned",
         "courses": [
             {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False},
             {"code": "ME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False},
@@ -110,7 +101,6 @@ PLAN = [
     },
     {
         "term": "Fall 4",
-        "status": "planned",
         "courses": [
             {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False},
             {"code": "BMED-ENG 414", "title": "Senior Design I", "credits": 3, "done": False},
@@ -122,7 +112,6 @@ PLAN = [
     },
     {
         "term": "Spring 4",
-        "status": "planned",
         "courses": [
             {"code": "BMED-ENG 430", "title": "Systems Biology", "credits": 3, "done": False},
             {"code": "BMED-ENG 415", "title": "Senior Design II", "credits": 3, "done": False, "note": "Integrative Experience"},
