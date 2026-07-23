@@ -184,8 +184,7 @@ function render(PLAN) {
   });
 
   const pct = totalCredits ? Math.round((doneCredits / totalCredits) * 100) : 0;
-  document.getElementById("progressFill").style.width = pct + "%";
-  document.getElementById("progressText").textContent = `${doneCredits} / ${totalCredits} credits`;
+  document.getElementById("navCreditText").textContent = `${doneCredits} / ${totalCredits} cr`;
 
   const ringCircumference = 97.4;
   document.getElementById("degreeRingFill").setAttribute(

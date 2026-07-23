@@ -32,7 +32,7 @@ PLAN = [
                 "code": "HM&FNART 102",
                 "title": "Traversing Differences: Global",
                 "credits": 4,
-                "done": True,
+                "done": False,
                 "note": "covers Arts & Literature + Diversity DG — resolving INC, 1 assignment left",
             },
         ],

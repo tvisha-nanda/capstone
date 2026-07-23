@@ -8,10 +8,6 @@
 <style>
   body { margin: 0; }
   .page { max-width: 1400px; margin: 0 auto; padding: 24px; }
-  .card.progress-card {
-    display: flex !important; flex-direction: row !important; align-items: center; gap: 14px;
-    margin-bottom: 20px; padding: 10px 16px;
-  }
   .nav-degree-ring { display: flex; align-items: center; gap: 6px; margin-left: 16px; }
   .degree-ring-track { fill: none; stroke: var(--color-neutral-800); stroke-width: 4; }
   .degree-ring-fill {
@@ -19,11 +15,6 @@
     transform: rotate(-90deg); transform-origin: 50% 50%;
     transition: stroke-dasharray .4s ease;
   }
-  .progress-track {
-    height: 6px; border-radius: 8px; overflow: hidden;
-    background: var(--color-neutral-800); flex: 1;
-  }
-  .progress-fill { height: 100%; background: var(--color-accent); transition: width .4s ease; }
   .flag-box {
     border: 1px solid #e06868; border-radius: var(--radius-md);
     background: color-mix(in srgb, #e06868 10%, transparent);
@@ -85,16 +76,17 @@
         </svg>
         <span class="text-muted" id="navDegreePct" style="font-size:13px;font-weight:600">0%</span>
       </div>
+      <span class="text-muted" id="navCreditText" style="font-size:12px;margin-left:10px;white-space:nowrap">0 / 0 cr</span>
     </span>
     <h6 class="nav-degree">B.S. Mechanical Engineering + B.S. Biomedical Engineering</h6>
     <span class="text-muted nav-student" style="font-size:13px">TVISHA NANDA · BIOMECHATRONICS / ROBOTICS</span>
   </nav>
 
   <div class="page">
-    <div class="card elev-sm progress-card">
-      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-      <span class="text-muted" id="progressText" style="font-size:11px;white-space:nowrap">0 / 0 credits</span>
-      <span class="text-muted" style="font-size:11px;white-space:nowrap">Target: Spring 4</span>
+    <div class="flag-box">
+      <div><b>Open items:</b> Honors College (CHC/GSMH) completion is not built into this plan — flag if that changes. Confirm M&amp;I-ENG 211/230/MATH 331 summer-transfer credits post before Spring 2 registration.</div>
+      <div style="margin-top:6px"><b>Gen Ed:</b> HM&amp;FNART 102 covers both Arts &amp; Literature and Diversity DG once the INC resolves — per the 07/17/2026 ARR, both still show unsatisfied because the course hasn't posted a final grade yet.</div>
+      <div style="margin-top:6px"><b>Also:</b> change meal plan from DC to YCMP.</div>
     </div>
 
     <div class="card elev-sm elective-card">
@@ -111,12 +103,6 @@
         <div class="elective-track"><div class="elective-fill" id="meElectiveFill" style="width:0%"></div></div>
         <span class="text-muted" id="meElectiveCr"></span>
       </div>
-    </div>
-
-    <div class="flag-box">
-      <div><b>Open items:</b> Honors College (CHC/GSMH) completion is not built into this plan — flag if that changes. Confirm M&amp;I-ENG 211/230/MATH 331 summer-transfer credits post before Spring 2 registration.</div>
-      <div style="margin-top:6px"><b>Gen Ed:</b> HM&amp;FNART 102 covers both Arts &amp; Literature and Diversity DG once the INC resolves — per the 07/17/2026 ARR, both still show unsatisfied because the course hasn't posted a final grade yet.</div>
-      <div style="margin-top:6px"><b>Also:</b> change meal plan from DC to YCMP.</div>
     </div>
 
     <div class="grid" id="grid"></div>
