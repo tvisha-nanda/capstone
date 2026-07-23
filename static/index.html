@@ -29,12 +29,10 @@
   }
   .flag-box b { color: var(--color-accent-300); }
   .grid {
-    column-width: 205px; column-gap: 12px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    gap: 12px; align-items: start;
   }
-  .term-card {
-    break-inside: avoid; margin-bottom: 12px; display: inline-block; width: 100%;
-    padding: 10px;
-  }
+  .term-card { padding: 10px; }
   .term-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
   .course-card {
     padding: 6px 8px; gap: 2px;

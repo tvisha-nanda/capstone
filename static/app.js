@@ -77,24 +77,32 @@ function render(PLAN) {
       if (course.done) doneCredits += course.credits;
     });
 
+    const isComplete = termData.courses.every((c) => c.done);
+    let collapsed = isComplete;
+
     const termEl = document.createElement("div");
     termEl.className = "card elev-sm term-card";
 
     const head = document.createElement("div");
     head.className = "term-head";
-    head.style.cursor = "pointer";
     head.innerHTML = `
       <span class="card-title" style="font-size:15px">${termData.term}</span>
-      <div style="display:flex;align-items:center;gap:8px">
+      <div style="display:flex;align-items:center;gap:6px">
         <span class="text-muted" style="font-size:11px;white-space:nowrap">${termCredits} cr</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"></path></svg>
+        ${isComplete ? `<button class="btn btn-icon" id="chevronBtn" style="width:22px;height:22px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon"><path d="M9 18l6-6-6-6"></path></svg></button>` : ""}
+        <button class="btn btn-icon" id="expandBtn" style="width:22px;height:22px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"></path></svg></button>
       </div>
     `;
-    head.addEventListener("click", () => openExpand(termData, termCredits));
     termEl.appendChild(head);
+
+    head.querySelector("#expandBtn").addEventListener("click", (e) => {
+      e.stopPropagation();
+      openExpand(termData, termCredits);
+    });
 
     const courses = document.createElement("div");
     courses.style.cssText = "display:flex;flex-direction:column;gap:4px;margin-top:2px";
+    if (collapsed) courses.style.display = "none";
 
     termData.courses.forEach((course) => {
       const row = document.createElement("div");
@@ -113,6 +121,19 @@ function render(PLAN) {
       `;
       courses.appendChild(row);
     });
+
+    if (isComplete) {
+      const chevronBtn = head.querySelector("#chevronBtn");
+      const chevronIcon = chevronBtn.querySelector(".chevron-icon");
+      chevronIcon.style.transform = collapsed ? "rotate(0deg)" : "rotate(90deg)";
+      chevronIcon.style.transition = "transform .15s ease";
+      chevronBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        collapsed = !collapsed;
+        courses.style.display = collapsed ? "none" : "flex";
+        chevronIcon.style.transform = collapsed ? "rotate(0deg)" : "rotate(90deg)";
+      });
+    }
 
     termEl.appendChild(courses);
     grid.appendChild(termEl);
