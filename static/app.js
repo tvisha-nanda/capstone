@@ -41,9 +41,12 @@ function openExpand(termData, termCredits) {
     card.className = "card";
     card.style.cssText = "background:var(--color-bg);border:1px solid var(--color-divider);gap:8px";
     card.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:6px">
         <span class="card-title" style="font-size:16px">${course.code}</span>
-        <span class="text-muted" style="font-size:12px">${course.credits} cr</span>
+        <span style="display:flex;align-items:center;gap:6px">
+          ${course.offered ? `<span class="tag tag-neutral" style="padding:2px 6px">${course.offered}</span>` : ""}
+          <span class="text-muted" style="font-size:12px">${course.credits} cr</span>
+        </span>
       </div>
       <div class="card-body">${course.title}</div>
       <div style="display:flex;gap:6px;flex-wrap:wrap">
@@ -97,7 +100,10 @@ function buildTermCard(termData) {
     row.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
         <div style="font-size:13px;font-weight:500" class="course-title ${course.done ? "checked" : ""}">${course.code}</div>
-        <span class="text-muted" style="font-size:11px;white-space:nowrap">${course.credits} cr</span>
+        <span style="display:flex;align-items:center;gap:5px">
+          ${course.offered ? `<span class="tag tag-neutral" style="padding:1px 5px;font-size:10px">${course.offered}</span>` : ""}
+          <span class="text-muted" style="font-size:11px;white-space:nowrap">${course.credits} cr</span>
+        </span>
       </div>
       <div class="text-muted" style="font-size:12px">${course.title}</div>
       <div class="course-meta text-muted">
