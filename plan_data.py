@@ -1,6 +1,6 @@
 PLAN = [
     {
-        "term": "Fall 2025",
+        "term": "Fall 1",
         "status": "complete",
         "courses": [
             {"code": "MATH 131", "title": "Calculus I", "credits": 4, "done": True},
@@ -16,7 +16,7 @@ PLAN = [
         ],
     },
     {
-        "term": "Spring 2026",
+        "term": "Spring 1",
         "status": "complete",
         "courses": [
             {"code": "CHEM 112", "title": "Chemistry II", "credits": 4, "done": True},
@@ -34,18 +34,7 @@ PLAN = [
         ],
     },
     {
-        "term": "Fall 2026",
-        "status": "in-progress",
-        "courses": [
-            {"code": "BMED-ENG 210", "title": "Intro to Biology for Engineers", "credits": 4, "done": False},
-            {"code": "M&I-ENG 124", "title": "Computational Approaches to Engineering", "credits": 3, "done": False},
-            {"code": "M&I-ENG 302", "title": "ME Lab I", "credits": 3, "done": False},
-            {"code": "M&I-ENG 310", "title": "Dynamics", "credits": 3, "done": False},
-            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False},
-        ],
-    },
-    {
-        "term": "Summer 2026 (transfer)",
+        "term": "Summer 1 (transfer)",
         "status": "in-progress",
         "courses": [
             {
@@ -60,25 +49,36 @@ PLAN = [
         ],
     },
     {
-        "term": "Spring 2027",
+        "term": "Fall 2",
+        "status": "in-progress",
+        "courses": [
+            {"code": "BMED-ENG 210", "title": "Intro to Biology for Engineers", "credits": 4, "done": False},
+            {"code": "M&I-ENG 124", "title": "Computational Approaches to Engineering", "credits": 3, "done": False},
+            {"code": "M&I-ENG 302", "title": "ME Lab I", "credits": 3, "done": False},
+            {"code": "M&I-ENG 310", "title": "Dynamics", "credits": 3, "done": False},
+            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False},
+        ],
+    },
+    {
+        "term": "Spring 2",
         "status": "planned",
         "courses": [
             {"code": "KIN 270", "title": "Anatomy & Physiology I", "credits": 4, "done": False},
             {"code": "GEN ED", "title": "Arts & Literature elective", "credits": 4, "done": False},
-            {"code": "BMED-ENG 275", "title": "Biomechanics", "credits": 3, "done": False, "note": "needs 211/241 transfer posted"},
+            {"code": "BMED-ENG 275", "title": "Biomechanics", "credits": 3, "done": False, "req": "211/241 transfer posted"},
             {"code": "BMED-ENG 300", "title": "Biomaterials", "credits": 3, "done": False},
             {"code": "BMED-ENG 310", "title": "Intro Lab Techniques", "credits": 3, "done": False},
         ],
     },
     {
-        "term": "Summer 2027",
+        "term": "Summer 2",
         "status": "planned",
         "courses": [
             {"code": "ENGIN 351", "title": "Writing in Engineering", "credits": 3, "done": False, "note": "offered in summer"},
         ],
     },
     {
-        "term": "Fall 2027",
+        "term": "Fall 3",
         "status": "planned",
         "courses": [
             {"code": "E&C-ENG 361", "title": "Electrical Engineering", "credits": 3, "done": False},
@@ -90,18 +90,18 @@ PLAN = [
         ],
     },
     {
-        "term": "Spring 2028",
+        "term": "Spring 3",
         "status": "planned",
         "courses": [
-            {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "note": "needs E&C-ENG 361"},
+            {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "req": "E&C-ENG 361"},
             {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False},
             {"code": "M&I-ENG 344", "title": "System Dynamics", "credits": 3, "done": False},
-            {"code": "M&I-ENG 413", "title": "Design of Mechanical Assemblies", "credits": 3, "done": False, "note": "after 313"},
+            {"code": "M&I-ENG 413", "title": "Design of Mechanical Assemblies", "credits": 3, "done": False, "req": "313"},
             {"code": "GEN ED", "title": "Diversity (DG) elective", "credits": 4, "done": False},
         ],
     },
     {
-        "term": "Summer 2028",
+        "term": "Summer 3",
         "status": "planned",
         "courses": [
             {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False},
@@ -109,7 +109,7 @@ PLAN = [
         ],
     },
     {
-        "term": "Fall 2028",
+        "term": "Fall 4",
         "status": "planned",
         "courses": [
             {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False},
@@ -121,7 +121,7 @@ PLAN = [
         ],
     },
     {
-        "term": "Spring 2029",
+        "term": "Spring 4",
         "status": "planned",
         "courses": [
             {"code": "BMED-ENG 430", "title": "Systems Biology", "credits": 3, "done": False},

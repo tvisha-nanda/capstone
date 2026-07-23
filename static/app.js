@@ -1,31 +1,3 @@
-const STORAGE_KEY = "degree-plan-checked-v1";
-
-function loadChecked() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  } catch {
-    return {};
-  }
-}
-function saveChecked(state) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-}
-
-function courseId(term, code) {
-  return `${term}__${code}`;
-}
-
-const STATUS_TAG = {
-  complete: "tag-accent",
-  "in-progress": "tag-outline",
-  planned: "tag-neutral",
-};
-const STATUS_LABEL = {
-  complete: "Completed",
-  "in-progress": "In progress",
-  planned: "Planning",
-};
-
 function closeExpand() {
   const backdrop = document.getElementById("expandBackdrop");
   if (backdrop) backdrop.remove();
@@ -72,7 +44,11 @@ function openExpand(termData, termCredits) {
       <span class="card-title" style="font-size:16px">${course.code}</span>
       <div class="card-body">${course.title}</div>
       <div class="card-meta">${course.credits} credits</div>
-      ${course.note ? `<div><span class="tag tag-outline">${course.note}</span></div>` : ""}
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        ${course.note ? `<span class="tag tag-neutral">${course.note}</span>` : ""}
+        ${course.req ? `<span class="tag tag-outline">REQ: ${course.req}</span>` : ""}
+        ${course.coreq ? `<span class="tag tag-accent">CO-REQ: ${course.coreq}</span>` : ""}
+      </div>
     `;
     grid.appendChild(card);
   });
@@ -85,7 +61,6 @@ function openExpand(termData, termCredits) {
 }
 
 function render(PLAN) {
-  const checked = loadChecked();
   const grid = document.getElementById("grid");
   grid.innerHTML = "";
 
@@ -94,9 +69,15 @@ function render(PLAN) {
 
   PLAN.forEach((termData) => {
     const termCredits = termData.courses.reduce((s, c) => s + c.credits, 0);
+    const isCollapsed = termData.status === "complete";
+
+    termData.courses.forEach((course) => {
+      totalCredits += course.credits;
+      if (termData.status === "complete" || course.done) doneCredits += course.credits;
+    });
 
     const termEl = document.createElement("div");
-    termEl.className = "card elev-sm";
+    termEl.className = "card elev-sm term-card" + (isCollapsed ? " collapsed" : "");
 
     const head = document.createElement("div");
     head.className = "term-head";
@@ -104,54 +85,36 @@ function render(PLAN) {
     head.innerHTML = `
       <span class="card-title" style="font-size:15px">${termData.term}</span>
       <div style="display:flex;align-items:center;gap:8px">
-        <span class="tag ${STATUS_TAG[termData.status]}">${STATUS_LABEL[termData.status]}</span>
+        <span class="text-muted" style="font-size:11px;white-space:nowrap">${termCredits} cr</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"></path></svg>
       </div>
     `;
     head.addEventListener("click", () => openExpand(termData, termCredits));
     termEl.appendChild(head);
 
-    const meta = document.createElement("div");
-    meta.className = "card-meta";
-    meta.textContent = `${termCredits} credits`;
-    termEl.appendChild(meta);
+    if (!isCollapsed) {
+      const courses = document.createElement("div");
+      courses.style.cssText = "display:flex;flex-direction:column;gap:6px;margin-top:2px";
 
-    const courses = document.createElement("div");
-    courses.style.cssText = "display:flex;flex-direction:column;gap:6px;margin-top:2px";
-
-    termData.courses.forEach((course) => {
-      const id = courseId(termData.term, course.code);
-      const isChecked = termData.status === "complete" ? true : (checked[id] ?? course.done);
-
-      totalCredits += course.credits;
-      if (isChecked) doneCredits += course.credits;
-
-      const row = document.createElement("div");
-      row.className = "card course-card";
-      row.innerHTML = `
-        <div class="course-row">
-          <input type="checkbox" ${isChecked ? "checked" : ""} ${termData.status === "complete" ? "disabled" : ""} />
-          <div style="flex:1">
-            <div style="font-size:13px;font-weight:500" class="course-title ${isChecked ? "checked" : ""}">${course.code}</div>
-            <div class="text-muted" style="font-size:12px">${course.title}</div>
-            <div class="course-meta text-muted">
-              <span>${course.credits} cr</span>
-              ${course.note ? `<span class="tag tag-outline">${course.note}</span>` : ""}
-            </div>
+      termData.courses.forEach((course) => {
+        const row = document.createElement("div");
+        row.className = "card course-card";
+        row.innerHTML = `
+          <div style="font-size:13px;font-weight:500" class="course-title ${course.done ? "checked" : ""}">${course.code}</div>
+          <div class="text-muted" style="font-size:12px">${course.title}</div>
+          <div class="course-meta text-muted">
+            <span>${course.credits} cr</span>
+            ${course.note ? `<span class="tag tag-neutral">${course.note}</span>` : ""}
+            ${course.req ? `<span class="tag tag-outline">REQ: ${course.req}</span>` : ""}
+            ${course.coreq ? `<span class="tag tag-accent">CO-REQ: ${course.coreq}</span>` : ""}
           </div>
-        </div>
-      `;
-      const box = row.querySelector("input");
-      box.addEventListener("change", (e) => {
-        const state = loadChecked();
-        state[id] = e.target.checked;
-        saveChecked(state);
-        render(PLAN);
+        `;
+        courses.appendChild(row);
       });
-      courses.appendChild(row);
-    });
 
-    termEl.appendChild(courses);
+      termEl.appendChild(courses);
+    }
+
     grid.appendChild(termEl);
   });
 
