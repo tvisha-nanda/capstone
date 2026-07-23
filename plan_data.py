@@ -27,7 +27,7 @@ PLAN = [
                 "title": "Traversing Differences: Global",
                 "credits": 4,
                 "done": True,
-                "note": "resolving INC — 1 assignment left",
+                "note": "covers Arts & Literature + Diversity DG — resolving INC, 1 assignment left",
             },
         ],
     },
@@ -59,7 +59,6 @@ PLAN = [
         "term": "Spring 2",
         "courses": [
             {"code": "KIN 270", "title": "Anatomy & Physiology I", "credits": 4, "done": False},
-            {"code": "GEN ED", "title": "Arts & Literature elective", "credits": 4, "done": False},
             {"code": "BMED-ENG 275", "title": "Biomechanics", "credits": 3, "done": False, "req": "211/241 transfer posted"},
             {"code": "BMED-ENG 300", "title": "Biomaterials", "credits": 3, "done": False},
             {"code": "BMED-ENG 310", "title": "Intro Lab Techniques", "credits": 3, "done": False},
@@ -89,7 +88,6 @@ PLAN = [
             {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False},
             {"code": "M&I-ENG 344", "title": "System Dynamics", "credits": 3, "done": False},
             {"code": "M&I-ENG 413", "title": "Design of Mechanical Assemblies", "credits": 3, "done": False, "req": "313"},
-            {"code": "GEN ED", "title": "Diversity (DG) elective", "credits": 4, "done": False},
         ],
     },
     {
