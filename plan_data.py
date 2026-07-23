@@ -82,7 +82,7 @@ PLAN = [
                 "title": "Mechatronics",
                 "credits": 3,
                 "done": False,
-                "note": "Fall only; E&C-ENG 361 must be done first (contact Kevin Romani for exceptions)",
+                "note": "Fall only",
                 "req": "E&C-ENG 361 (completed, not concurrent)",
             },
             {
