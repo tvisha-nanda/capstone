@@ -185,8 +185,14 @@ function render(PLAN) {
 
   const pct = totalCredits ? Math.round((doneCredits / totalCredits) * 100) : 0;
   document.getElementById("progressFill").style.width = pct + "%";
-  document.getElementById("progressPct").textContent = pct + "%";
   document.getElementById("progressText").textContent = `${doneCredits} / ${totalCredits} credits`;
+
+  const ringCircumference = 97.4;
+  document.getElementById("degreeRingFill").setAttribute(
+    "stroke-dasharray",
+    `${(pct / 100) * ringCircumference} ${ringCircumference}`
+  );
+  document.getElementById("navDegreePct").textContent = pct + "%";
 }
 
 fetch("/api/plan")

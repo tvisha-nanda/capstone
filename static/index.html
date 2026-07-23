@@ -12,10 +12,12 @@
     display: flex !important; flex-direction: row !important; align-items: center; gap: 14px;
     margin-bottom: 20px; padding: 10px 16px;
   }
-  .progress-pct {
-    display: flex; align-items: baseline; gap: 5px;
-    padding-right: 14px; border-right: 1px solid var(--color-divider);
-    white-space: nowrap;
+  .nav-degree-ring { display: flex; align-items: center; gap: 6px; margin-left: 16px; }
+  .degree-ring-track { fill: none; stroke: var(--color-neutral-800); stroke-width: 4; }
+  .degree-ring-fill {
+    fill: none; stroke: var(--color-accent); stroke-width: 4; stroke-linecap: round;
+    transform: rotate(-90deg); transform-origin: 50% 50%;
+    transition: stroke-dasharray .4s ease;
   }
   .progress-track {
     height: 6px; border-radius: 8px; overflow: hidden;
@@ -61,8 +63,8 @@
     width: 90px; height: 5px; border-radius: 8px; overflow: hidden;
     background: var(--color-neutral-800);
   }
-  .elective-fill { height: 100%; background: var(--color-accent); }
-  .elective-fill.over { background: var(--color-amber, #e0a458); }
+  .elective-fill { height: 100%; background: #e0a458; }
+  .elective-fill.over { background: #e06868; }
 </style>
 </head>
 <body>
@@ -76,6 +78,13 @@
         <rect x="9.8" y="6" width="6.4" height="2.6" rx="1.1" fill="var(--color-accent)"></rect>
       </svg>
       <span style="letter-spacing:-0.02em">Capstone</span>
+      <div class="nav-degree-ring">
+        <svg width="26" height="26" viewBox="0 0 36 36">
+          <circle class="degree-ring-track" cx="18" cy="18" r="15.5"></circle>
+          <circle class="degree-ring-fill" id="degreeRingFill" cx="18" cy="18" r="15.5" stroke-dasharray="0 97.4"></circle>
+        </svg>
+        <span class="text-muted" id="navDegreePct" style="font-size:13px;font-weight:600">0%</span>
+      </div>
     </span>
     <h6 class="nav-degree">B.S. Mechanical Engineering + B.S. Biomedical Engineering</h6>
     <span class="text-muted nav-student" style="font-size:13px">TVISHA NANDA · BIOMECHATRONICS / ROBOTICS</span>
@@ -83,10 +92,6 @@
 
   <div class="page">
     <div class="card elev-sm progress-card">
-      <div class="progress-pct">
-        <span class="card-title" style="font-size:15px" id="progressPct">0%</span>
-        <span class="text-muted" style="font-size:11px">degree</span>
-      </div>
       <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
       <span class="text-muted" id="progressText" style="font-size:11px;white-space:nowrap">0 / 0 credits</span>
       <span class="text-muted" style="font-size:11px;white-space:nowrap">Target: Spring 4</span>
