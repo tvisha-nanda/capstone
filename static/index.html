@@ -23,11 +23,11 @@
   }
   .progress-fill { height: 100%; background: var(--color-accent); transition: width .4s ease; }
   .flag-box {
-    border: 1px solid var(--color-accent); border-radius: var(--radius-md);
-    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    border: 1px solid #e06868; border-radius: var(--radius-md);
+    background: color-mix(in srgb, #e06868 10%, transparent);
     padding: 12px 16px; margin-bottom: 20px; font-size: 13px; line-height: 1.5;
   }
-  .flag-box b { color: var(--color-accent-300); }
+  .flag-box b { color: #e06868; }
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
     gap: 12px; align-items: start;
@@ -53,6 +53,8 @@
   .elective-card {
     display: flex !important; flex-direction: row !important; gap: 24px;
     margin-bottom: 20px; padding: 10px 16px; align-items: center; flex-wrap: wrap;
+    border: 1px solid #e0a458;
+    background: color-mix(in srgb, #e0a458 10%, transparent);
   }
   .elective-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
   .elective-track {

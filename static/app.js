@@ -145,7 +145,8 @@ function render(PLAN) {
     termData.courses.forEach((course) => {
       totalCredits += course.credits;
       if (course.done) doneCredits += course.credits;
-      if (course.elective && electiveStats[course.elective]) {
+      const isPastOrCurrent = course.done || termData.term === "Fall 2";
+      if (course.elective && electiveStats[course.elective] && isPastOrCurrent) {
         electiveStats[course.elective].count += 1;
         electiveStats[course.elective].credits += course.credits;
       }
