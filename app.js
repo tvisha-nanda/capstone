@@ -15,7 +15,7 @@ function courseId(term, code) {
   return `${term}__${code}`;
 }
 
-function render() {
+function render(PLAN) {
   const checked = loadChecked();
   const timeline = document.getElementById("timeline");
   timeline.innerHTML = "";
@@ -74,7 +74,7 @@ function render() {
         const state = loadChecked();
         state[id] = e.target.checked;
         saveChecked(state);
-        render();
+        render(PLAN);
       });
       body.appendChild(row);
     });
@@ -94,4 +94,10 @@ function render() {
     `${doneCredits} / ${totalCredits} credits checked off (${pct}%)`;
 }
 
-render();
+fetch("/api/plan")
+  .then((res) => res.json())
+  .then((plan) => render(plan))
+  .catch((err) => {
+    document.getElementById("timeline").textContent = "Failed to load plan data.";
+    console.error(err);
+  });
