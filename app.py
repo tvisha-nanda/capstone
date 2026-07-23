@@ -2,7 +2,7 @@ from flask import Flask, jsonify, send_from_directory
 
 from plan_data import PLAN
 
-app = Flask(__name__, static_folder=".", static_url_path="")
+app = Flask(__name__, static_folder="static", static_url_path="")
 
 
 @app.route("/")
