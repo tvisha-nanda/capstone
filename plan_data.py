@@ -108,7 +108,7 @@ PLAN = [
             {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False, "req": "BMED-ENG 210, KIN 270"},
             {"code": "BMED-ENG 414", "title": "Senior Design I", "credits": 3, "done": False, "req": "BMED-ENG 275"},
             {"code": "M&I-ENG 375", "title": "Manufacturing Processes", "credits": 3, "done": False},
-            {"code": "M&I-ENG 402", "title": "ME Lab II", "credits": 3, "done": False},
+            {"code": "M&I-ENG 402", "title": "ME Lab II", "credits": 3, "done": False, "req": "M&I-ENG 302"},
             {"code": "BME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False},
             {"code": "ME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False},
         ],
