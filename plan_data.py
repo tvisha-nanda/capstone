@@ -62,6 +62,7 @@ PLAN = [
             {"code": "BMED-ENG 275", "title": "Biomechanics", "credits": 3, "done": False, "req": "211/241 transfer posted"},
             {"code": "BMED-ENG 300", "title": "Biomaterials", "credits": 3, "done": False},
             {"code": "BMED-ENG 310", "title": "Intro Lab Techniques", "credits": 3, "done": False},
+            {"code": "E&C-ENG 361", "title": "Electrical Engineering", "credits": 3, "done": False},
         ],
     },
     {
@@ -73,7 +74,6 @@ PLAN = [
     {
         "term": "Fall 3",
         "courses": [
-            {"code": "E&C-ENG 361", "title": "Electrical Engineering", "credits": 3, "done": False},
             {"code": "M&I-ENG 313", "title": "Design of Mechanical Components", "credits": 3, "done": False},
             {"code": "M&I-ENG 395A", "title": "Seminar: Engineering Professionalism", "credits": 1, "done": False},
             {"code": "STAT 315", "title": "Statistics", "credits": 3, "done": False},
