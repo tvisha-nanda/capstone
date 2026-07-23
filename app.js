@@ -15,59 +15,68 @@ function courseId(term, code) {
   return `${term}__${code}`;
 }
 
+const STATUS_TAG = {
+  complete: "tag-accent",
+  "in-progress": "tag-outline",
+  planned: "tag-neutral",
+};
+const STATUS_LABEL = {
+  complete: "Completed",
+  "in-progress": "In progress",
+  planned: "Planning",
+};
+
 function render(PLAN) {
   const checked = loadChecked();
-  const timeline = document.getElementById("timeline");
-  timeline.innerHTML = "";
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
 
   let totalCredits = 0;
   let doneCredits = 0;
 
-  PLAN.forEach((termData, idx) => {
-    const termEl = document.createElement("div");
-    termEl.className = "term";
-    if (termData.status === "complete") termEl.classList.add("complete");
-
+  PLAN.forEach((termData) => {
     const termCredits = termData.courses.reduce((s, c) => s + c.credits, 0);
-    let termDone = 0;
+
+    const termEl = document.createElement("div");
+    termEl.className = "card elev-sm";
 
     const head = document.createElement("div");
     head.className = "term-head";
     head.innerHTML = `
-      <div>
-        <span class="term-name">${termData.term}</span>
-      </div>
-      <div class="term-meta">
-        <span>${termCredits} cr</span>
-        <span class="chevron">&#9656;</span>
-      </div>
+      <span class="card-title" style="font-size:15px">${termData.term}</span>
+      <span class="tag ${STATUS_TAG[termData.status]}">${STATUS_LABEL[termData.status]}</span>
     `;
-    head.addEventListener("click", () => {
-      termEl.classList.toggle("open");
-    });
+    termEl.appendChild(head);
 
-    const body = document.createElement("div");
-    body.className = "term-body";
+    const meta = document.createElement("div");
+    meta.className = "card-meta";
+    meta.textContent = `${termCredits} credits`;
+    termEl.appendChild(meta);
+
+    const courses = document.createElement("div");
+    courses.style.cssText = "display:flex;flex-direction:column;gap:6px;margin-top:2px";
 
     termData.courses.forEach((course) => {
       const id = courseId(termData.term, course.code);
       const isChecked = termData.status === "complete" ? true : (checked[id] ?? course.done);
 
       totalCredits += course.credits;
-      if (isChecked) {
-        doneCredits += course.credits;
-        termDone += course.credits;
-      }
+      if (isChecked) doneCredits += course.credits;
 
       const row = document.createElement("div");
-      row.className = "course-row";
+      row.className = "card course-card";
       row.innerHTML = `
-        <input type="checkbox" ${isChecked ? "checked" : ""} ${termData.status === "complete" ? "disabled" : ""} />
-        <div>
-          <div class="course-title ${isChecked ? "checked" : ""}">${course.title}${course.note ? ` <span class="note">— ${course.note}</span>` : ""}</div>
+        <div class="course-row">
+          <input type="checkbox" ${isChecked ? "checked" : ""} ${termData.status === "complete" ? "disabled" : ""} />
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:500" class="course-title ${isChecked ? "checked" : ""}">${course.code}</div>
+            <div class="text-muted" style="font-size:12px">${course.title}</div>
+            <div class="course-meta text-muted">
+              <span>${course.credits} cr</span>
+              ${course.note ? `<span class="tag tag-outline">${course.note}</span>` : ""}
+            </div>
+          </div>
         </div>
-        <span class="course-code">${course.code}</span>
-        <span class="course-credits">${course.credits}cr</span>
       `;
       const box = row.querySelector("input");
       box.addEventListener("change", (e) => {
@@ -76,28 +85,23 @@ function render(PLAN) {
         saveChecked(state);
         render(PLAN);
       });
-      body.appendChild(row);
+      courses.appendChild(row);
     });
 
-    if (idx === PLAN.findIndex(t => t.status !== "complete")) {
-      termEl.classList.add("open");
-    }
-
-    termEl.appendChild(head);
-    termEl.appendChild(body);
-    timeline.appendChild(termEl);
+    termEl.appendChild(courses);
+    grid.appendChild(termEl);
   });
 
   const pct = totalCredits ? Math.round((doneCredits / totalCredits) * 100) : 0;
   document.getElementById("progressFill").style.width = pct + "%";
-  document.getElementById("progressText").textContent =
-    `${doneCredits} / ${totalCredits} credits checked off (${pct}%)`;
+  document.getElementById("progressPct").textContent = pct + "%";
+  document.getElementById("progressText").textContent = `${doneCredits} / ${totalCredits} credits`;
 }
 
 fetch("/api/plan")
   .then((res) => res.json())
   .then((plan) => render(plan))
   .catch((err) => {
-    document.getElementById("timeline").textContent = "Failed to load plan data.";
+    document.getElementById("grid").textContent = "Failed to load plan data.";
     console.error(err);
   });

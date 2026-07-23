@@ -4,153 +4,81 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Capstone — BME + ME Flowsheet</title>
+<link rel="stylesheet" href="nocturne.css" />
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo:wght@500;600;700;800&display=swap');
-
-  :root{
-    --blue-deep:#0b1f33;
-    --blue-panel:#102a45;
-    --grid-line:#1c3a5c;
-    --cyan:#5ec8d8;
-    --amber:#e0a458;
-    --paper:#eef2f0;
-    --paper-dim:#a9bcc9;
-    --ok:#7fd88f;
+  body { margin: 0; }
+  .page { max-width: 1400px; margin: 0 auto; padding: 24px; }
+  .card.progress-card {
+    display: flex !important; flex-direction: row !important; align-items: center; gap: 14px;
+    margin-bottom: 20px; padding: 10px 16px;
   }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:
-      linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0/32px 32px,
-      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0/32px 32px,
-      var(--blue-deep);
-    color:var(--paper);
-    font-family:'Archivo', sans-serif;
-    min-height:100vh;
+  .progress-pct {
+    display: flex; align-items: baseline; gap: 5px;
+    padding-right: 14px; border-right: 1px solid var(--color-divider);
+    white-space: nowrap;
   }
-  header{
-    padding:36px 24px 20px;
-    border-bottom:2px solid var(--cyan);
-    max-width:1100px;
-    margin:0 auto;
+  .progress-track {
+    height: 6px; border-radius: 8px; overflow: hidden;
+    background: var(--color-neutral-800); flex: 1;
   }
-  .eyebrow{
-    font-family:'Space Mono', monospace;
-    font-size:12px;
-    letter-spacing:.15em;
-    color:var(--amber);
-    text-transform:uppercase;
+  .progress-fill { height: 100%; background: var(--color-accent); transition: width .4s ease; }
+  .flag-box {
+    border: 1px solid var(--color-accent); border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    padding: 12px 16px; margin-bottom: 20px; font-size: 13px; line-height: 1.5;
   }
-  h1{
-    font-size:clamp(28px,4vw,44px);
-    margin:6px 0 4px;
-    font-weight:800;
-    letter-spacing:-0.01em;
+  .flag-box b { color: var(--color-accent-300); }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
   }
-  .subtitle{color:var(--paper-dim); font-family:'Space Mono',monospace; font-size:13px;}
-
-  .progress-wrap{max-width:1100px; margin:20px auto 0; padding:0 24px;}
-  .progress-bar{
-    height:10px; background:var(--blue-panel); border:1px solid var(--grid-line);
-    position:relative; overflow:hidden;
+  .term-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .term-head .tag { white-space: nowrap; }
+  .course-card {
+    padding: 8px 10px; gap: 3px; background: var(--color-bg);
+    border: 1px solid var(--color-divider);
   }
-  .progress-fill{
-    height:100%; background:repeating-linear-gradient(45deg,var(--cyan),var(--cyan) 6px,#4aa9b8 6px,#4aa9b8 12px);
-    transition:width .4s ease;
+  .course-row { display: flex; align-items: flex-start; gap: 8px; }
+  .course-row input[type="checkbox"] {
+    margin-top: 3px; width: 15px; height: 15px; accent-color: var(--color-accent); cursor: pointer;
   }
-  .progress-label{font-family:'Space Mono',monospace; font-size:12px; color:var(--paper-dim); margin-top:6px; display:flex; justify-content:space-between;}
-
-  main{max-width:1100px; margin:0 auto; padding:24px;}
-
-  .legend{display:flex; gap:18px; flex-wrap:wrap; font-family:'Space Mono',monospace; font-size:11px; color:var(--paper-dim); margin-bottom:20px;}
-  .legend span{display:inline-flex; align-items:center; gap:6px;}
-  .dot{width:8px; height:8px; border-radius:50%; display:inline-block;}
-  .dot.done{background:var(--ok);}
-  .dot.pend{background:var(--amber);}
-  .dot.flag{background:#e06868;}
-
-  .timeline{position:relative; padding-left:26px;}
-  .timeline::before{
-    content:''; position:absolute; left:8px; top:6px; bottom:6px; width:2px;
-    background:repeating-linear-gradient(var(--cyan),var(--cyan) 6px,transparent 6px,transparent 11px);
-  }
-  .term{position:relative; margin-bottom:14px;}
-  .term::before{
-    content:''; position:absolute; left:-26px; top:14px; width:11px; height:11px;
-    border-radius:50%; background:var(--blue-deep); border:2px solid var(--cyan);
-  }
-  .term.complete::before{background:var(--ok); border-color:var(--ok);}
-
-  .term-head{
-    display:flex; align-items:center; justify-content:space-between; cursor:pointer;
-    background:var(--blue-panel); border:1px solid var(--grid-line); padding:12px 16px;
-  }
-  .term-head:hover{border-color:var(--cyan);}
-  .term-name{font-weight:700; font-size:16px;}
-  .term-meta{font-family:'Space Mono',monospace; font-size:12px; color:var(--paper-dim); display:flex; gap:14px; align-items:center;}
-  .chevron{transition:transform .2s ease; color:var(--cyan);}
-  .term.open .chevron{transform:rotate(90deg);}
-
-  .term-body{display:none; border:1px solid var(--grid-line); border-top:none; padding:4px 0;}
-  .term.open .term-body{display:block;}
-
-  .course-row{
-    display:grid; grid-template-columns:28px 1fr auto auto; gap:12px; align-items:center;
-    padding:10px 16px; border-bottom:1px solid var(--grid-line);
-  }
-  .course-row:last-child{border-bottom:none;}
-  .course-row input[type=checkbox]{width:18px; height:18px; accent-color:var(--ok); cursor:pointer;}
-  .course-code{font-family:'Space Mono',monospace; font-size:12px; color:var(--cyan); white-space:nowrap;}
-  .course-title{font-size:14px;}
-  .course-title.checked{color:var(--paper-dim); text-decoration:line-through;}
-  .course-credits{font-family:'Space Mono',monospace; font-size:12px; color:var(--paper-dim);}
-  .note{font-size:11px; color:var(--amber); font-family:'Space Mono',monospace;}
-
-  .flag-box{
-    background:rgba(224,104,104,0.1); border:1px solid #e06868; padding:14px 16px; margin-bottom:20px;
-    font-size:13px; line-height:1.5;
-  }
-  .flag-box b{color:#e06868;}
-
-  footer{text-align:center; padding:30px; font-family:'Space Mono',monospace; font-size:11px; color:var(--paper-dim);}
-
-  @media (max-width:600px){
-    .course-row{grid-template-columns:24px 1fr auto;}
-    .course-credits{display:none;}
-  }
+  .course-title.checked { color: var(--color-neutral-500); text-decoration: line-through; }
+  .course-meta { display: flex; gap: 6px; align-items: center; font-size: 11px; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="eyebrow">Capstone · Riccio College of Engineering</div>
-  <h1>Capstone</h1>
-  <div class="subtitle">TVISHA NANDA · SPIRE 35078524 · CATALOG FALL 2025 · TRACK: BIOMECHATRONICS / ROBOTICS</div>
-</header>
+<div class="noc-frame" style="min-height:100vh">
+  <nav class="nav">
+    <span class="nav-brand" style="display:flex;align-items:center;gap:9px">
+      <svg width="24" height="24" viewBox="0 0 26 26">
+        <rect x="0.5" y="0.5" width="25" height="25" rx="8" fill="var(--color-surface)" stroke="var(--color-divider)"></rect>
+        <path d="M7 18.5 L13 8.5 L19 18.5 Z" fill="none" stroke="var(--color-accent-300)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"></path>
+        <rect x="9.8" y="6" width="6.4" height="2.6" rx="1.1" fill="var(--color-accent)"></rect>
+      </svg>
+      <span style="letter-spacing:-0.02em">Capstone</span>
+    </span>
+    <span class="text-muted" style="font-size:13px">TVISHA NANDA · SPIRE 35078524 · BIOMECHATRONICS / ROBOTICS</span>
+  </nav>
 
-<div class="progress-wrap">
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-  <div class="progress-label">
-    <span id="progressText">0 / 0 credits checked off</span>
-    <span>Target: Spring 2029</span>
+  <div class="page">
+    <div class="card elev-sm progress-card">
+      <div class="progress-pct">
+        <span class="card-title" style="font-size:15px" id="progressPct">0%</span>
+        <span class="text-muted" style="font-size:11px">degree</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <span class="text-muted" id="progressText" style="font-size:11px;white-space:nowrap">0 / 0 credits</span>
+      <span class="text-muted" style="font-size:11px;white-space:nowrap">Target: Spring 2029</span>
+    </div>
+
+    <div class="flag-box">
+      <b>Open items:</b> Honors College (CHC/GSMH) completion is not built into this plan — flag if that changes. Confirm M&amp;I-ENG 211/230/MATH 331 summer-transfer credits post before Spring 2027 registration.
+    </div>
+
+    <div class="grid" id="grid"></div>
   </div>
 </div>
-
-<main>
-  <div class="flag-box">
-    <b>Open items:</b> Honors College (CHC/GSMH) completion is not built into this plan — flag if that changes. Confirm M&I-ENG 211/230/MATH 331 summer-transfer credits post before Spring 2027 registration.
-  </div>
-
-  <div class="legend">
-    <span><span class="dot done"></span> completed</span>
-    <span><span class="dot pend"></span> planned</span>
-    <span><span class="dot flag"></span> needs verification</span>
-  </div>
-
-  <div class="timeline" id="timeline"></div>
-</main>
-
-<footer>Check items off as you register/complete them — progress saves locally in this browser.</footer>
 
 <script src="app.js"></script>
 </body>
