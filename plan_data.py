@@ -57,8 +57,8 @@ PLAN = [
             {"code": "BMED-ENG 210", "title": "Intro to Biology for Engineers", "credits": 4, "done": False},
             {"code": "M&I-ENG 124", "title": "Computational Approaches to Engineering", "credits": 3, "done": False},
             {"code": "M&I-ENG 302", "title": "ME Lab I", "credits": 3, "done": False},
-            {"code": "M&I-ENG 310", "title": "Dynamics", "credits": 3, "done": False},
-            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False},
+            {"code": "M&I-ENG 310", "title": "Dynamics", "credits": 3, "done": False, "req": "MATH 233, M&I-ENG 124, M&I-ENG 210"},
+            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False, "req": "M&I-ENG 230, MATH 233"},
         ],
     },
     {
@@ -72,16 +72,11 @@ PLAN = [
         ],
     },
     {
-        "term": "Summer 2",
-        "courses": [
-            {"code": "ENGIN 351", "title": "Writing in Engineering", "credits": 3, "done": False, "note": "offered in summer"},
-        ],
-    },
-    {
         "term": "Fall 3",
         "courses": [
             {"code": "M&I-ENG 313", "title": "Design of Mechanical Components", "credits": 3, "done": False},
             {"code": "M&I-ENG 395A", "title": "Seminar: Engineering Professionalism", "credits": 1, "done": False},
+            {"code": "ENGIN 351", "title": "Writing in Engineering", "credits": 3, "done": False},
             {"code": "BME TECH ELEC #1", "title": "Technical elective (e.g. MIE 685 Biorobotics)", "credits": 3, "done": False},
             {"code": "ME TECH ELEC #1", "title": "Technical elective", "credits": 3, "done": False},
         ],
@@ -90,7 +85,7 @@ PLAN = [
         "term": "Spring 3",
         "courses": [
             {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "req": "E&C-ENG 361 (coreq ok), KIN 270"},
-            {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False},
+            {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False, "req": "M&I-ENG 230, M&I-ENG 340"},
             {"code": "M&I-ENG 344", "title": "System Dynamics", "credits": 3, "done": False},
             {"code": "M&I-ENG 413", "title": "Design of Mechanical Assemblies", "credits": 3, "done": False, "req": "313"},
         ],
