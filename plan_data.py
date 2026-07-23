@@ -67,7 +67,7 @@ PLAN = [
             {"code": "KIN 270", "title": "Anatomy & Physiology I", "credits": 4, "done": False},
             {"code": "BMED-ENG 275", "title": "Biomechanics", "credits": 3, "done": False, "req": "211/241 transfer posted"},
             {"code": "BMED-ENG 300", "title": "Biomaterials", "credits": 3, "done": False},
-            {"code": "BMED-ENG 310", "title": "Intro Lab Techniques", "credits": 3, "done": False},
+            {"code": "BMED-ENG 310", "title": "Intro Lab Techniques", "credits": 3, "done": False, "req": "BMED-ENG 210"},
             {"code": "E&C-ENG 361", "title": "Electrical Engineering", "credits": 3, "done": False},
         ],
     },
@@ -105,8 +105,8 @@ PLAN = [
     {
         "term": "Fall 4",
         "courses": [
-            {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False},
-            {"code": "BMED-ENG 414", "title": "Senior Design I", "credits": 3, "done": False},
+            {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False, "req": "BMED-ENG 210, KIN 270"},
+            {"code": "BMED-ENG 414", "title": "Senior Design I", "credits": 3, "done": False, "req": "BMED-ENG 275"},
             {"code": "M&I-ENG 375", "title": "Manufacturing Processes", "credits": 3, "done": False},
             {"code": "M&I-ENG 402", "title": "ME Lab II", "credits": 3, "done": False},
             {"code": "BME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False},
@@ -117,8 +117,8 @@ PLAN = [
         "term": "Spring 4",
         "courses": [
             {"code": "BMED-ENG 430", "title": "Systems Biology", "credits": 3, "done": False},
-            {"code": "BMED-ENG 415", "title": "Senior Design II", "credits": 3, "done": False, "note": "Integrative Experience"},
-            {"code": "M&I-ENG 415", "title": "Design of Mechanical Systems", "credits": 3, "done": False, "note": "capstone"},
+            {"code": "BMED-ENG 415", "title": "Senior Design II", "credits": 3, "done": False, "note": "Integrative Experience", "req": "BMED-ENG 414"},
+            {"code": "M&I-ENG 415", "title": "Design of Mechanical Systems", "credits": 3, "done": False, "note": "capstone", "req": "M&I-ENG 413"},
             {"code": "BME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False},
             {"code": "ME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False},
         ],
