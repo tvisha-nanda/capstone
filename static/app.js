@@ -41,9 +41,11 @@ function openExpand(termData, termCredits) {
     card.className = "card";
     card.style.cssText = "background:var(--color-bg);border:1px solid var(--color-divider);gap:8px";
     card.innerHTML = `
-      <span class="card-title" style="font-size:16px">${course.code}</span>
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <span class="card-title" style="font-size:16px">${course.code}</span>
+        <span class="text-muted" style="font-size:12px">${course.credits} cr</span>
+      </div>
       <div class="card-body">${course.title}</div>
-      <div class="card-meta">${course.credits} credits</div>
       <div style="display:flex;gap:6px;flex-wrap:wrap">
         ${course.note ? `<span class="tag tag-neutral">${course.note}</span>` : ""}
         ${course.req ? `<span class="tag tag-outline">REQ: ${course.req}</span>` : ""}
@@ -92,16 +94,18 @@ function render(PLAN) {
     termEl.appendChild(head);
 
     const courses = document.createElement("div");
-    courses.style.cssText = "display:flex;flex-direction:column;gap:6px;margin-top:2px";
+    courses.style.cssText = "display:flex;flex-direction:column;gap:4px;margin-top:2px";
 
     termData.courses.forEach((course) => {
       const row = document.createElement("div");
       row.className = "card course-card";
       row.innerHTML = `
-        <div style="font-size:13px;font-weight:500" class="course-title ${course.done ? "checked" : ""}">${course.code}</div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+          <div style="font-size:13px;font-weight:500" class="course-title ${course.done ? "checked" : ""}">${course.code}</div>
+          <span class="text-muted" style="font-size:11px;white-space:nowrap">${course.credits} cr</span>
+        </div>
         <div class="text-muted" style="font-size:12px">${course.title}</div>
         <div class="course-meta text-muted">
-          <span>${course.credits} cr</span>
           ${course.note ? `<span class="tag tag-neutral">${course.note}</span>` : ""}
           ${course.req ? `<span class="tag tag-outline">REQ: ${course.req}</span>` : ""}
           ${course.coreq ? `<span class="tag tag-accent">CO-REQ: ${course.coreq}</span>` : ""}

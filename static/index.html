@@ -29,12 +29,15 @@
   }
   .flag-box b { color: var(--color-accent-300); }
   .grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 16px; align-items: start;
+    column-width: 205px; column-gap: 12px;
+  }
+  .term-card {
+    break-inside: avoid; margin-bottom: 12px; display: inline-block; width: 100%;
+    padding: 10px;
   }
   .term-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
   .course-card {
-    padding: 8px 10px; gap: 3px;
+    padding: 6px 8px; gap: 2px;
     background: color-mix(in srgb, var(--color-bg) 85%, black);
     border: 1px solid var(--color-divider);
   }
