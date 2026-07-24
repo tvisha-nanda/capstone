@@ -42,7 +42,10 @@ function openExpand(termData, termCredits) {
     card.style.cssText = "background:var(--color-bg);border:1px solid var(--color-divider);gap:8px";
     card.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:6px">
-        <span class="card-title" style="font-size:16px">${course.code}</span>
+        <span style="display:flex;align-items:center;gap:6px">
+          ${course.elective ? `<span title="${course.elective} technical elective" style="width:6px;height:6px;border-radius:50%;background:#e0a458;flex:none"></span>` : ""}
+          <span class="card-title" style="font-size:16px">${course.code}</span>
+        </span>
         <span style="display:flex;align-items:center;gap:6px">
           ${course.offered ? `<span class="tag tag-neutral" style="padding:2px 6px">${course.offered}</span>` : ""}
           <span class="text-muted" style="font-size:12px">${course.credits} cr</span>
@@ -99,7 +102,10 @@ function buildTermCard(termData) {
     row.className = "card course-card";
     row.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
-        <div style="font-size:13px;font-weight:500" class="course-title ${course.done ? "checked" : ""}">${course.code}</div>
+        <div style="display:flex;align-items:center;gap:5px">
+          ${course.elective ? `<span title="${course.elective} technical elective" style="width:6px;height:6px;border-radius:50%;background:#e0a458;flex:none"></span>` : ""}
+          <div style="font-size:13px;font-weight:500" class="course-title ${course.done ? "checked" : ""}">${course.code}</div>
+        </div>
         <span style="display:flex;align-items:center;gap:5px">
           ${course.offered ? `<span class="tag tag-neutral" style="padding:1px 5px;font-size:10px">${course.offered}</span>` : ""}
           <span class="text-muted" style="font-size:11px;white-space:nowrap">${course.credits} cr</span>

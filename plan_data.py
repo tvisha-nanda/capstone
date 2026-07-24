@@ -44,11 +44,11 @@ PLAN = [
                 "code": "M&I-ENG 211",
                 "title": "Strength of Materials",
                 "credits": 3,
-                "done": False,
-                "note": "also satisfies BMED-ENG 241 — send transcript ASAP",
+                "done": True,
+                "note": "also satisfies BMED-ENG 241",
             },
-            {"code": "M&I-ENG 230", "title": "Thermodynamics", "credits": 3, "done": False, "note": "send transcript ASAP", "elective": "BME"},
-            {"code": "MATH 331", "title": "Differential Equations", "credits": 3, "done": False, "note": "send transcript ASAP"},
+            {"code": "M&I-ENG 230", "title": "Thermodynamics", "credits": 3, "done": True, "elective": "BME"},
+            {"code": "MATH 331", "title": "Differential Equations", "credits": 3, "done": True},
         ],
     },
     {
@@ -58,7 +58,7 @@ PLAN = [
             {"code": "M&I-ENG 124", "title": "Computational Approaches to Engineering", "credits": 3, "done": False},
             {"code": "M&I-ENG 302", "title": "ME Lab I", "credits": 3, "done": False},
             {"code": "M&I-ENG 310", "title": "Dynamics", "credits": 3, "done": False, "req": "M&I-ENG 124 (concurrent, Fall 2)"},
-            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False, "offered": "F", "req": "M&I-ENG 230 (pending transcript)", "elective": "BME"},
+            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False, "offered": "F", "elective": "BME"},
         ],
     },
     {
@@ -67,7 +67,7 @@ PLAN = [
             {"code": "KIN 270", "title": "Anatomy & Physiology I", "credits": 4, "done": False},
             {"code": "BMED-ENG 275", "title": "Biomechanics", "credits": 3, "done": False, "offered": "S", "req": "211/241 transfer posted"},
             {"code": "BMED-ENG 300", "title": "Biomaterials", "credits": 3, "done": False, "req": "BMED-ENG 210 (in progress)"},
-            {"code": "BMED-ENG 310", "title": "Intro Lab Techniques", "credits": 3, "done": False, "req": "BMED-ENG 210, BMED-ENG 241 (via M&I-ENG 211)"},
+            {"code": "BMED-ENG 310", "title": "Intro Lab Techniques", "credits": 3, "done": False, "req": "BMED-ENG 210"},
             {"code": "E&C-ENG 361", "title": "Electrical Engineering", "credits": 3, "done": False},
         ],
     },
@@ -92,9 +92,9 @@ PLAN = [
                 "credits": 3,
                 "done": False,
                 "offered": "F",
-                "req": "E&C-ENG 201 (or MATH 331) or M&I-ENG 310 (or 344)",
                 "elective": "ME",
             },
+            {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
         ],
     },
     {
@@ -102,16 +102,9 @@ PLAN = [
         "courses": [
             {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "req": "E&C-ENG 361 (coreq ok), KIN 270"},
             {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False, "req": "KIN 270"},
-            {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False, "offered": "S", "req": "M&I-ENG 230, M&I-ENG 340"},
+            {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False, "offered": "S", "req": "M&I-ENG 340"},
             {"code": "M&I-ENG 344", "title": "System Dynamics", "credits": 3, "done": False},
             {"code": "M&I-ENG 413", "title": "Design of Mechanical Assemblies", "credits": 3, "done": False, "req": "313"},
-        ],
-    },
-    {
-        "term": "Summer 3",
-        "courses": [
-            {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
-            {"code": "ME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
         ],
     },
     {
@@ -132,6 +125,7 @@ PLAN = [
             {"code": "M&I-ENG 415", "title": "Design of Mechanical Systems", "credits": 3, "done": False, "note": "capstone", "req": "M&I-ENG 413"},
             {"code": "BME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
             {"code": "ME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
+            {"code": "ME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
         ],
     },
 ]
