@@ -95,12 +95,12 @@ PLAN = [
                 "elective": "ME",
             },
             {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
+            {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "req": "KIN 270", "coreq": "E&C-ENG 361"},
         ],
     },
     {
         "term": "Spring 3",
         "courses": [
-            {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "req": "E&C-ENG 361 (coreq ok), KIN 270"},
             {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False, "req": "KIN 270"},
             {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False, "offered": "S", "req": "M&I-ENG 340"},
             {"code": "M&I-ENG 344", "title": "System Dynamics", "credits": 3, "done": False},
