@@ -111,19 +111,17 @@ PLAN = [
         "term": "Fall 4",
         "courses": [
             {"code": "BMED-ENG 430", "title": "Systems Biology", "credits": 3, "done": False, "offered": "F", "req": "BMED-ENG 330"},
-            {"code": "BMED-ENG 414", "title": "Senior Design I", "credits": 3, "done": False, "offered": "F", "req": "BMED-ENG 275, all BME 3xx completed/concurrent"},
             {"code": "M&I-ENG 375", "title": "Manufacturing Processes", "credits": 3, "done": False},
             {"code": "M&I-ENG 402", "title": "ME Lab II", "credits": 3, "done": False, "req": "M&I-ENG 302"},
-            {"code": "BME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
+            {"code": "HONORS 499T", "title": "Honors Thesis", "credits": 3, "done": False, "note": "counts as BME tech elective", "elective": "BME"},
             {"code": "ME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
         ],
     },
     {
         "term": "Spring 4",
         "courses": [
-            {"code": "BMED-ENG 415", "title": "Senior Design II", "credits": 3, "done": False, "offered": "S", "note": "Integrative Experience", "req": "BMED-ENG 414"},
             {"code": "M&I-ENG 415", "title": "Design of Mechanical Systems", "credits": 3, "done": False, "note": "capstone", "req": "M&I-ENG 413"},
-            {"code": "BME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
+            {"code": "HONORS 499P", "title": "Honors Thesis", "credits": 3, "done": False, "note": "counts as BME tech elective", "elective": "BME"},
             {"code": "ME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
             {"code": "ME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
         ],
