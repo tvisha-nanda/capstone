@@ -76,7 +76,6 @@ PLAN = [
         "courses": [
             {"code": "M&I-ENG 313", "title": "Design of Mechanical Components", "credits": 3, "done": False},
             {"code": "M&I-ENG 395A", "title": "Seminar: Engineering Professionalism", "credits": 1, "done": False, "offered": "F"},
-            {"code": "ENGIN 351", "title": "Writing in Engineering", "credits": 3, "done": False},
             {
                 "code": "M&I-ENG 443",
                 "title": "Mechatronics",
@@ -94,7 +93,6 @@ PLAN = [
                 "offered": "F",
                 "elective": "ME",
             },
-            {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
             {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "req": "KIN 270", "coreq": "E&C-ENG 361"},
         ],
     },
@@ -105,6 +103,7 @@ PLAN = [
             {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False, "offered": "S", "req": "M&I-ENG 340"},
             {"code": "M&I-ENG 344", "title": "System Dynamics", "credits": 3, "done": False},
             {"code": "M&I-ENG 413", "title": "Design of Mechanical Assemblies", "credits": 3, "done": False, "req": "313"},
+            {"code": "ENGIN 351", "title": "Writing in Engineering", "credits": 3, "done": False},
         ],
     },
     {
@@ -123,6 +122,7 @@ PLAN = [
             {"code": "M&I-ENG 415", "title": "Design of Mechanical Systems", "credits": 3, "done": False, "note": "capstone", "req": "M&I-ENG 413"},
             {"code": "HONORS 499P", "title": "Honors Thesis", "credits": 3, "done": False, "note": "counts as BME tech elective", "elective": "BME"},
             {"code": "ME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
+            {"code": "BME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
         ],
     },
 ]
