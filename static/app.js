@@ -68,7 +68,7 @@ function openExpand(termData, termCredits) {
 function buildTermCard(termData) {
   const termCredits = termData.courses.reduce((s, c) => s + c.credits, 0);
   const isComplete = termData.courses.every((c) => c.done);
-  let collapsed = isComplete;
+  let collapsed = isComplete || termData.term === "Spring 1";
 
   const termEl = document.createElement("div");
   termEl.className = "card elev-sm term-card";

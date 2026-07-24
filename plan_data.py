@@ -54,18 +54,18 @@ PLAN = [
     {
         "term": "Fall 2",
         "courses": [
-            {"code": "BMED-ENG 210", "title": "Intro to Biology for Engineers", "credits": 4, "done": False},
+            {"code": "BMED-ENG 210", "title": "Intro to Biology for Engineers", "credits": 4, "done": False, "offered": "F"},
             {"code": "M&I-ENG 124", "title": "Computational Approaches to Engineering", "credits": 3, "done": False},
             {"code": "M&I-ENG 302", "title": "ME Lab I", "credits": 3, "done": False},
             {"code": "M&I-ENG 310", "title": "Dynamics", "credits": 3, "done": False, "req": "M&I-ENG 124 (concurrent, Fall 2)"},
-            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False, "req": "M&I-ENG 230 (pending transcript)", "elective": "BME"},
+            {"code": "M&I-ENG 340", "title": "Fluid Mechanics I", "credits": 3, "done": False, "offered": "F", "req": "M&I-ENG 230 (pending transcript)", "elective": "BME"},
         ],
     },
     {
         "term": "Spring 2",
         "courses": [
             {"code": "KIN 270", "title": "Anatomy & Physiology I", "credits": 4, "done": False},
-            {"code": "BMED-ENG 275", "title": "Biomechanics", "credits": 3, "done": False, "req": "211/241 transfer posted"},
+            {"code": "BMED-ENG 275", "title": "Biomechanics", "credits": 3, "done": False, "offered": "S", "req": "211/241 transfer posted"},
             {"code": "BMED-ENG 300", "title": "Biomaterials", "credits": 3, "done": False, "req": "BMED-ENG 210 (in progress)"},
             {"code": "BMED-ENG 310", "title": "Intro Lab Techniques", "credits": 3, "done": False, "req": "BMED-ENG 210, BMED-ENG 241 (via M&I-ENG 211)"},
             {"code": "E&C-ENG 361", "title": "Electrical Engineering", "credits": 3, "done": False},
@@ -75,7 +75,7 @@ PLAN = [
         "term": "Fall 3",
         "courses": [
             {"code": "M&I-ENG 313", "title": "Design of Mechanical Components", "credits": 3, "done": False},
-            {"code": "M&I-ENG 395A", "title": "Seminar: Engineering Professionalism", "credits": 1, "done": False},
+            {"code": "M&I-ENG 395A", "title": "Seminar: Engineering Professionalism", "credits": 1, "done": False, "offered": "F"},
             {"code": "ENGIN 351", "title": "Writing in Engineering", "credits": 3, "done": False},
             {
                 "code": "M&I-ENG 443",
@@ -101,7 +101,8 @@ PLAN = [
         "term": "Spring 3",
         "courses": [
             {"code": "BMED-ENG 320", "title": "Bioinstrumentation", "credits": 3, "done": False, "req": "E&C-ENG 361 (coreq ok), KIN 270"},
-            {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False, "req": "M&I-ENG 230, M&I-ENG 340"},
+            {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False, "req": "KIN 270"},
+            {"code": "M&I-ENG 354", "title": "Heat Transfer", "credits": 3, "done": False, "offered": "S", "req": "M&I-ENG 230, M&I-ENG 340"},
             {"code": "M&I-ENG 344", "title": "System Dynamics", "credits": 3, "done": False},
             {"code": "M&I-ENG 413", "title": "Design of Mechanical Assemblies", "credits": 3, "done": False, "req": "313"},
         ],
@@ -116,8 +117,8 @@ PLAN = [
     {
         "term": "Fall 4",
         "courses": [
-            {"code": "BMED-ENG 330", "title": "Quantitative Physiology", "credits": 3, "done": False, "req": "KIN 270"},
-            {"code": "BMED-ENG 414", "title": "Senior Design I", "credits": 3, "done": False, "req": "BMED-ENG 275, all BME 3xx completed/concurrent"},
+            {"code": "BMED-ENG 430", "title": "Systems Biology", "credits": 3, "done": False, "offered": "F", "req": "BMED-ENG 330"},
+            {"code": "BMED-ENG 414", "title": "Senior Design I", "credits": 3, "done": False, "offered": "F", "req": "BMED-ENG 275, all BME 3xx completed/concurrent"},
             {"code": "M&I-ENG 375", "title": "Manufacturing Processes", "credits": 3, "done": False},
             {"code": "M&I-ENG 402", "title": "ME Lab II", "credits": 3, "done": False, "req": "M&I-ENG 302"},
             {"code": "BME TECH ELEC #3", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
@@ -127,8 +128,7 @@ PLAN = [
     {
         "term": "Spring 4",
         "courses": [
-            {"code": "BMED-ENG 430", "title": "Systems Biology", "credits": 3, "done": False, "req": "BMED-ENG 330"},
-            {"code": "BMED-ENG 415", "title": "Senior Design II", "credits": 3, "done": False, "note": "Integrative Experience", "req": "BMED-ENG 414"},
+            {"code": "BMED-ENG 415", "title": "Senior Design II", "credits": 3, "done": False, "offered": "S", "note": "Integrative Experience", "req": "BMED-ENG 414"},
             {"code": "M&I-ENG 415", "title": "Design of Mechanical Systems", "credits": 3, "done": False, "note": "capstone", "req": "M&I-ENG 413"},
             {"code": "BME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "BME"},
             {"code": "ME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
