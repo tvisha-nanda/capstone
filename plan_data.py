@@ -84,7 +84,7 @@ PLAN = [
                 "done": False,
                 "offered": "F",
                 "req": "E&C-ENG 361",
-                "elective": "BME",
+                "elective": "ME",
             },
             {
                 "code": "M&I-ENG 510+",
@@ -123,7 +123,6 @@ PLAN = [
             {"code": "M&I-ENG 415", "title": "Design of Mechanical Systems", "credits": 3, "done": False, "note": "capstone", "req": "M&I-ENG 413"},
             {"code": "HONORS 499P", "title": "Honors Thesis", "credits": 3, "done": False, "note": "counts as BME tech elective", "elective": "BME"},
             {"code": "ME TECH ELEC #4", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
-            {"code": "ME TECH ELEC #2", "title": "Technical elective", "credits": 3, "done": False, "elective": "ME"},
         ],
     },
 ]
