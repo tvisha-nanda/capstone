@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nocturne — a degree flowsheet you actually own</title>
+<title>Capstone — a degree flowsheet you actually own</title>
 <meta name="description" content="An open-source degree planner: term-by-term flowsheet, prereq/coreq tracking, and elective counters, built for a UMass BME + ME dual degree and forkable for any curriculum." />
 <link rel="stylesheet" href="nocturne.css" />
 <style>
@@ -112,7 +112,7 @@
         <path d="M7 18.5 L13 8.5 L19 18.5 Z" fill="none" stroke="var(--color-accent-300)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"></path>
         <rect x="9.8" y="6" width="6.4" height="2.6" rx="1.1" fill="var(--color-accent)"></rect>
       </svg>
-      <span style="letter-spacing:-0.02em;font-family:var(--font-heading);font-weight:500">Nocturne</span>
+      <span style="letter-spacing:-0.02em;font-family:var(--font-heading);font-weight:500">Capstone</span>
     </a>
     <a href="https://github.com/tvisha-nanda/capstone" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-left:auto">GitHub</a>
     <a href="/plan" class="btn btn-primary">Open my plan</a>
@@ -193,8 +193,8 @@
         </div>
         <div class="card feature-card">
           <div class="feature-num">04</div>
-          <div class="card-title">One file, no database</div>
-          <p class="card-body">The whole plan is a Python list in <code>plan_data.py</code>. Edit courses, credits, and flags directly — nothing to migrate or seed.</p>
+          <div class="card-title">Fully editable, no database</div>
+          <p class="card-body">Add, edit, delete, and drag courses between terms right in the dashboard. It writes straight to a JSON file — nothing to migrate or seed.</p>
         </div>
       </div>
     </section>
@@ -213,8 +213,8 @@
         <div class="step">
           <div class="step-index">2</div>
           <div>
-            <div class="roadmap-title">Edit <code>plan_data.py</code></div>
-            <div class="roadmap-desc">Swap in your own terms and courses — code, title, credits, prereqs, elective tags. The dashboard renders straight from this file.</div>
+            <div class="roadmap-title">Add your own terms and courses</div>
+            <div class="roadmap-desc">Click any course to edit it, hit "+ Add course" for a new one, drag between terms, or add/delete a term entirely — all from the dashboard itself.</div>
           </div>
         </div>
         <div class="step">
@@ -232,17 +232,17 @@
       <h2>Where it's headed</h2>
       <div class="roadmap-list">
         <div class="roadmap-item">
-          <div class="roadmap-status building">In progress</div>
+          <div class="roadmap-status building">Shipped</div>
           <div>
             <div class="roadmap-title">Edit courses in the dashboard itself</div>
-            <div class="roadmap-desc">Move, add, and adjust courses directly in the term view — no more hand-editing <code>plan_data.py</code> for day-to-day changes.</div>
+            <div class="roadmap-desc">Move, add, edit, and delete courses (and whole terms) directly in the term view — no hand-editing a data file for day-to-day changes.</div>
           </div>
         </div>
         <div class="roadmap-item">
           <div class="roadmap-status idea">Planned</div>
           <div>
             <div class="roadmap-title">Upload a flowchart or transcript</div>
-            <div class="roadmap-desc">Drop in your program's PDF flowsheet or an unofficial transcript and have it generate a starting plan in this same UI — instead of building <code>plan_data.py</code> by hand.</div>
+            <div class="roadmap-desc">Drop in your program's PDF flowsheet or an unofficial transcript and have it generate a starting plan in this same UI — instead of building the plan by hand.</div>
           </div>
         </div>
         <div class="roadmap-item">

@@ -1,0 +1,371 @@
+[
+  {
+    "courses": [
+      {
+        "code": "MATH 131",
+        "credits": 4,
+        "done": true,
+        "title": "Calculus I"
+      },
+      {
+        "code": "MATH 132",
+        "credits": 4,
+        "done": true,
+        "title": "Calculus II"
+      },
+      {
+        "code": "MATH 233",
+        "credits": 4,
+        "done": true,
+        "title": "Multivariate Calculus"
+      },
+      {
+        "code": "CHEM 111",
+        "credits": 4,
+        "done": true,
+        "title": "Chemistry I"
+      },
+      {
+        "code": "PHYSICS 151",
+        "credits": 4,
+        "done": true,
+        "title": "General Physics I"
+      },
+      {
+        "code": "ENGIN 114",
+        "credits": 3,
+        "done": true,
+        "title": "Intro to BME"
+      },
+      {
+        "code": "ENGLWRIT 112",
+        "credits": 3,
+        "done": true,
+        "title": "College Writing"
+      },
+      {
+        "code": "HISTORY 151",
+        "credits": 3,
+        "done": true,
+        "title": "US History since 1876"
+      },
+      {
+        "code": "PSYCH 100",
+        "credits": 4,
+        "done": true,
+        "title": "Introductory Psychology"
+      },
+      {
+        "code": "E&C-ENG 150",
+        "credits": 4,
+        "done": true,
+        "title": "Better Decisions by Humans & AI"
+      }
+    ],
+    "term": "Fall 1"
+  },
+  {
+    "courses": [
+      {
+        "code": "CHEM 112",
+        "credits": 4,
+        "done": true,
+        "title": "Chemistry II"
+      },
+      {
+        "code": "PHYSICS 152",
+        "credits": 4,
+        "done": true,
+        "title": "General Physics II"
+      },
+      {
+        "code": "M&I-ENG 201",
+        "credits": 3,
+        "done": true,
+        "title": "Intro to Materials Science"
+      },
+      {
+        "code": "M&I-ENG 210",
+        "credits": 3,
+        "done": true,
+        "title": "Statics"
+      },
+      {
+        "code": "M&I-ENG 273",
+        "credits": 3,
+        "done": true,
+        "note": "advisor-confirmed substitution for BME's STAT 315 requirement",
+        "title": "Probability & Statistics for Engineers"
+      },
+      {
+        "code": "HM&FNART 102",
+        "credits": 4,
+        "done": false,
+        "note": "covers Arts & Literature + Diversity DG \u2014 resolving INC, 1 assignment left",
+        "title": "Traversing Differences: Global"
+      }
+    ],
+    "term": "Spring 1"
+  },
+  {
+    "courses": [
+      {
+        "code": "M&I-ENG 211",
+        "credits": 3,
+        "done": true,
+        "note": "also satisfies BMED-ENG 241",
+        "title": "Strength of Materials"
+      },
+      {
+        "code": "M&I-ENG 230",
+        "credits": 3,
+        "done": true,
+        "elective": "BME",
+        "title": "Thermodynamics"
+      },
+      {
+        "code": "MATH 331",
+        "credits": 3,
+        "done": true,
+        "title": "Differential Equations"
+      }
+    ],
+    "term": "Summer 1 (transfer)"
+  },
+  {
+    "courses": [
+      {
+        "code": "BMED-ENG 210",
+        "credits": 4,
+        "done": false,
+        "offered": "F",
+        "title": "Intro to Biology for Engineers"
+      },
+      {
+        "code": "M&I-ENG 124",
+        "credits": 3,
+        "done": false,
+        "title": "Computational Approaches to Engineering"
+      },
+      {
+        "code": "M&I-ENG 302",
+        "credits": 3,
+        "done": false,
+        "title": "ME Lab I"
+      },
+      {
+        "code": "M&I-ENG 310",
+        "credits": 3,
+        "done": false,
+        "req": "M&I-ENG 124 (concurrent, Fall 2)",
+        "title": "Dynamics"
+      },
+      {
+        "code": "M&I-ENG 340",
+        "credits": 3,
+        "done": false,
+        "elective": "BME",
+        "offered": "F",
+        "title": "Fluid Mechanics I"
+      }
+    ],
+    "term": "Fall 2"
+  },
+  {
+    "courses": [
+      {
+        "code": "KIN 270",
+        "credits": 4,
+        "done": false,
+        "title": "Anatomy & Physiology I"
+      },
+      {
+        "code": "BMED-ENG 275",
+        "credits": 3,
+        "done": false,
+        "offered": "S",
+        "req": "211/241 transfer posted",
+        "title": "Biomechanics"
+      },
+      {
+        "code": "BMED-ENG 300",
+        "credits": 3,
+        "done": false,
+        "req": "BMED-ENG 210 (in progress)",
+        "title": "Biomaterials"
+      },
+      {
+        "code": "BMED-ENG 310",
+        "credits": 3,
+        "done": false,
+        "req": "BMED-ENG 210",
+        "title": "Intro Lab Techniques"
+      },
+      {
+        "code": "E&C-ENG 361",
+        "credits": 3,
+        "done": false,
+        "title": "Electrical Engineering"
+      }
+    ],
+    "term": "Spring 2"
+  },
+  {
+    "courses": [
+      {
+        "code": "M&I-ENG 313",
+        "credits": 3,
+        "done": false,
+        "title": "Design of Mechanical Components"
+      },
+      {
+        "code": "M&I-ENG 395A",
+        "credits": 1,
+        "done": false,
+        "offered": "F",
+        "title": "Seminar: Engineering Professionalism"
+      },
+      {
+        "code": "M&I-ENG 443",
+        "credits": 3,
+        "done": false,
+        "elective": "ME",
+        "offered": "F",
+        "req": "E&C-ENG 361",
+        "title": "Mechatronics"
+      },
+      {
+        "code": "M&I-ENG 510+",
+        "credits": 3,
+        "done": false,
+        "elective": "ME",
+        "offered": "F",
+        "title": "Feedback Control Systems"
+      },
+      {
+        "code": "BMED-ENG 320",
+        "coreq": "E&C-ENG 361",
+        "credits": 3,
+        "done": false,
+        "req": "KIN 270",
+        "title": "Bioinstrumentation"
+      }
+    ],
+    "term": "Fall 3"
+  },
+  {
+    "courses": [
+      {
+        "code": "BMED-ENG 330",
+        "credits": 3,
+        "done": false,
+        "req": "KIN 270",
+        "title": "Quantitative Physiology"
+      },
+      {
+        "code": "M&I-ENG 354",
+        "credits": 3,
+        "done": false,
+        "offered": "S",
+        "req": "M&I-ENG 340",
+        "title": "Heat Transfer"
+      },
+      {
+        "code": "M&I-ENG 344",
+        "credits": 3,
+        "done": false,
+        "title": "System Dynamics"
+      },
+      {
+        "code": "M&I-ENG 413",
+        "credits": 3,
+        "done": false,
+        "req": "313",
+        "title": "Design of Mechanical Assemblies"
+      },
+      {
+        "code": "ENGIN 351",
+        "credits": 3,
+        "done": false,
+        "title": "Writing in Engineering"
+      }
+    ],
+    "term": "Spring 3"
+  },
+  {
+    "courses": [
+      {
+        "code": "BMED-ENG 430",
+        "credits": 3,
+        "done": false,
+        "offered": "F",
+        "req": "BMED-ENG 330",
+        "title": "Systems Biology"
+      },
+      {
+        "code": "M&I-ENG 375",
+        "credits": 3,
+        "done": false,
+        "title": "Manufacturing Processes"
+      },
+      {
+        "code": "M&I-ENG 402",
+        "credits": 3,
+        "done": false,
+        "req": "M&I-ENG 302",
+        "title": "ME Lab II"
+      },
+      {
+        "code": "HONORS 499T",
+        "credits": 3,
+        "done": false,
+        "elective": "BME",
+        "note": "counts as BME tech elective",
+        "title": "Honors Thesis"
+      },
+      {
+        "code": "ME TECH ELEC #3",
+        "credits": 3,
+        "done": false,
+        "elective": "ME",
+        "title": "Technical elective"
+      }
+    ],
+    "term": "Fall 4"
+  },
+  {
+    "courses": [
+      {
+        "code": "M&I-ENG 415",
+        "credits": 3,
+        "done": false,
+        "note": "capstone",
+        "req": "M&I-ENG 413",
+        "title": "Design of Mechanical Systems"
+      },
+      {
+        "code": "HONORS 499P",
+        "credits": 3,
+        "done": false,
+        "elective": "BME",
+        "note": "counts as BME tech elective",
+        "title": "Honors Thesis"
+      },
+      {
+        "code": "ME TECH ELEC #4",
+        "credits": 3,
+        "done": false,
+        "elective": "ME",
+        "title": "Technical elective"
+      },
+      {
+        "code": "BME TECH ELEC #2",
+        "credits": 3,
+        "done": false,
+        "elective": "BME",
+        "title": "Technical elective"
+      }
+    ],
+    "term": "Spring 4"
+  }
+]

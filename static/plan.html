@@ -23,16 +23,25 @@
   .flag-box b { color: #e06868; }
   .flag-box li + li { margin-top: 5px; }
   .grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
-    gap: 12px; align-items: start;
+    display: flex; flex-wrap: nowrap; align-items: start;
+    gap: 10px; overflow-x: auto; padding-bottom: 8px;
   }
-  .term-card { padding: 10px; }
+  .term-card { padding: 10px; width: 205px; flex-shrink: 0; }
+  .term-card.collapsed { width: 108px; }
+  .term-card.collapsed .term-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .term-stack { flex-shrink: 0; }
   .term-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
   .course-card {
     padding: 6px 8px; gap: 2px;
     background: color-mix(in srgb, var(--color-bg) 85%, black);
     border: 1px solid var(--color-divider);
+    cursor: pointer;
   }
+  .course-card:hover { border-color: var(--color-accent); }
+  .course-card.dragging { opacity: 0.4; }
+  .term-dropzone.drag-over { outline: 2px dashed var(--color-accent); outline-offset: 4px; border-radius: var(--radius-sm); }
+  .delete-term-btn { opacity: 0.5; }
+  .delete-term-btn:hover { opacity: 1; background: color-mix(in srgb, #e06868 15%, transparent); }
   .course-title.checked { color: var(--color-neutral-500); text-decoration: line-through; }
   .course-meta { display: flex; gap: 6px; align-items: center; font-size: 11px; }
   .nav {
@@ -80,7 +89,10 @@
       <span class="text-muted" id="navCreditText" style="font-size:12px;margin-left:10px;white-space:nowrap">0 / 0 cr</span>
     </a>
     <h6 class="nav-degree">B.S. Mechanical Engineering + B.S. Biomedical Engineering</h6>
-    <span class="text-muted nav-student" style="font-size:13px">TVISHA NANDA · BIOMECHATRONICS / ROBOTICS</span>
+    <span class="nav-student" style="display:flex;align-items:center;gap:14px">
+      <a href="/" class="btn btn-secondary" style="padding:4px 10px;font-size:12px">Home</a>
+      <span class="text-muted" style="font-size:13px">TVISHA NANDA · BIOMECHATRONICS / ROBOTICS</span>
+    </span>
   </nav>
 
   <div class="page">
