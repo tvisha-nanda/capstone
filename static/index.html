@@ -3,119 +3,266 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Capstone — BME + ME Flowsheet</title>
+<title>Nocturne — a degree flowsheet you actually own</title>
+<meta name="description" content="An open-source degree planner: term-by-term flowsheet, prereq/coreq tracking, and elective counters, built for a UMass BME + ME dual degree and forkable for any curriculum." />
 <link rel="stylesheet" href="nocturne.css" />
 <style>
   body { margin: 0; }
-  .page { max-width: 1400px; margin: 0 auto; padding: 24px; }
-  .nav-degree-ring { display: flex; align-items: center; gap: 6px; margin-left: 16px; }
-  .degree-ring-track { fill: none; stroke: var(--color-neutral-800); stroke-width: 4; }
-  .degree-ring-fill {
-    fill: none; stroke: var(--color-accent); stroke-width: 4; stroke-linecap: round;
-    transform: rotate(-90deg); transform-origin: 50% 50%;
-    transition: stroke-dasharray .4s ease;
+  .page { max-width: 1080px; margin: 0 auto; padding: 24px; }
+
+  .nav-brand-link { display: flex; align-items: center; gap: 9px; text-decoration: none; color: inherit; }
+
+  /* — hero — */
+  .hero {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px;
+    align-items: start; padding: 56px 0 40px;
   }
-  .flag-box {
-    border: 1px solid #e06868; border-radius: var(--radius-md);
-    background: color-mix(in srgb, #e06868 10%, transparent);
-    padding: 12px 16px; margin-bottom: 20px; font-size: 13px; line-height: 1.5;
+  .hero-kicker {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--color-accent); margin-bottom: var(--space-3);
+    display: flex; align-items: center; gap: 8px;
   }
-  .flag-box b { color: #e06868; }
-  .flag-box li + li { margin-top: 5px; }
-  .grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
-    gap: 12px; align-items: start;
+  .hero-kicker::before {
+    content: ""; width: 16px; height: 1px; background: var(--color-accent);
   }
-  .term-card { padding: 10px; }
-  .term-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-  .course-card {
-    padding: 6px 8px; gap: 2px;
-    background: color-mix(in srgb, var(--color-bg) 85%, black);
+  .hero h1 { font-size: 46px; max-width: 13ch; margin-bottom: var(--space-4); }
+  .hero-sub { font-size: 16px; max-width: 46ch; color: color-mix(in srgb, var(--color-text) 78%, transparent); margin-bottom: var(--space-6); }
+  .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* — live snapshot card — */
+  .snapshot {
+    padding: 20px; display: flex; flex-direction: column; gap: 16px;
     border: 1px solid var(--color-divider);
   }
-  .course-title.checked { color: var(--color-neutral-500); text-decoration: line-through; }
-  .course-meta { display: flex; gap: 6px; align-items: center; font-size: 11px; }
-  .nav {
-    display: grid !important; grid-template-columns: 1fr auto 1fr;
-    align-items: center;
+  .snapshot-head { display: flex; align-items: center; justify-content: space-between; }
+  .snapshot-ring-wrap { display: flex; align-items: center; gap: 12px; }
+  .snapshot-ring-track { fill: none; stroke: var(--color-neutral-800); stroke-width: 5; }
+  .snapshot-ring-fill {
+    fill: none; stroke: var(--color-accent); stroke-width: 5; stroke-linecap: round;
+    transform: rotate(-90deg); transform-origin: 50% 50%;
+    transition: stroke-dasharray .6s ease;
   }
-  .nav-degree {
-    justify-self: center; margin: 0; color: var(--color-accent);
-    font-size: 13px; white-space: nowrap;
+  .snapshot-pct { font-size: 26px; font-family: var(--font-heading); font-weight: 600; }
+  .snapshot-row {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 13px; padding-top: 10px; border-top: 1px solid var(--color-divider);
   }
-  .nav-student { justify-self: end; }
-  .elective-card {
-    display: flex !important; flex-direction: row !important; gap: 24px;
-    margin-bottom: 20px; padding: 10px 16px; align-items: center; flex-wrap: wrap;
-    border: 1px solid #e0a458;
-    background: color-mix(in srgb, #e0a458 10%, transparent);
+  .snapshot-track { width: 84px; height: 5px; border-radius: 8px; overflow: hidden; background: var(--color-neutral-800); }
+  .snapshot-fill { height: 100%; background: #e0a458; }
+
+  /* — section rhythm — */
+  .section { padding: 44px 0; border-top: 1px solid var(--color-divider); }
+  .section-kicker { color: var(--color-accent); margin-bottom: var(--space-2); }
+  .section h2 { max-width: 20ch; }
+  .section-lede { max-width: 58ch; color: color-mix(in srgb, var(--color-text) 78%, transparent); margin-bottom: 28px; }
+
+  /* — feature grid — */
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .feature-card { padding: 18px; border: 1px solid var(--color-divider); }
+  .feature-num {
+    font-family: var(--font-heading); font-size: 12px; color: var(--color-accent);
+    letter-spacing: 0.05em; margin-bottom: var(--space-3);
   }
-  .elective-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
-  .elective-track {
-    width: 90px; height: 5px; border-radius: 8px; overflow: hidden;
-    background: var(--color-neutral-800);
+
+  /* — roadmap — */
+  .roadmap-list { display: flex; flex-direction: column; }
+  .roadmap-item {
+    display: grid; grid-template-columns: 110px 1fr; gap: 20px;
+    padding: 16px 0; border-top: 1px solid var(--color-divider);
   }
-  .elective-fill { height: 100%; background: #e0a458; }
-  .elective-fill.over { background: #e06868; }
+  .roadmap-item:first-child { border-top: none; }
+  .roadmap-status { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding-top: 3px; }
+  .roadmap-status.building { color: var(--color-accent); }
+  .roadmap-status.idea { color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+  .roadmap-title { font-family: var(--font-heading); font-weight: 500; margin-bottom: 3px; }
+  .roadmap-desc { font-size: 13px; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+
+  /* — how it works — */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding: 14px 0; }
+  .step-index {
+    width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--color-divider);
+    display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--color-accent);
+  }
+  .step code {
+    font-size: 12px; background: var(--color-surface); border: 1px solid var(--color-divider);
+    padding: 1px 6px; border-radius: 4px;
+  }
+
+  footer.page-footer {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    padding: 24px 0 40px; font-size: 12px;
+    color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 34px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="noc-frame" style="min-height:100vh">
   <nav class="nav">
-    <span class="nav-brand" style="display:flex;align-items:center;gap:9px">
+    <a href="/" class="nav-brand-link">
       <svg width="24" height="24" viewBox="0 0 26 26">
         <rect x="0.5" y="0.5" width="25" height="25" rx="8" fill="var(--color-surface)" stroke="var(--color-divider)"></rect>
         <path d="M7 18.5 L13 8.5 L19 18.5 Z" fill="none" stroke="var(--color-accent-300)" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"></path>
         <rect x="9.8" y="6" width="6.4" height="2.6" rx="1.1" fill="var(--color-accent)"></rect>
       </svg>
-      <span style="letter-spacing:-0.02em">Capstone</span>
-      <div class="nav-degree-ring">
-        <svg width="26" height="26" viewBox="0 0 36 36">
-          <circle class="degree-ring-track" cx="18" cy="18" r="15.5"></circle>
-          <circle class="degree-ring-fill" id="degreeRingFill" cx="18" cy="18" r="15.5" stroke-dasharray="0 97.4"></circle>
-        </svg>
-        <span class="text-muted" id="navDegreePct" style="font-size:13px;font-weight:600">0%</span>
-      </div>
-      <span class="text-muted" id="navCreditText" style="font-size:12px;margin-left:10px;white-space:nowrap">0 / 0 cr</span>
-    </span>
-    <h6 class="nav-degree">B.S. Mechanical Engineering + B.S. Biomedical Engineering</h6>
-    <span class="text-muted nav-student" style="font-size:13px">TVISHA NANDA · BIOMECHATRONICS / ROBOTICS</span>
+      <span style="letter-spacing:-0.02em;font-family:var(--font-heading);font-weight:500">Nocturne</span>
+    </a>
+    <a href="https://github.com/tvisha-nanda/capstone" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-left:auto">GitHub</a>
+    <a href="/plan" class="btn btn-primary">Open my plan</a>
   </nav>
 
   <div class="page">
-    <div class="flag-box">
-      <ul style="margin:0; padding-left:18px;">
-        <li><b>Gen Ed:</b> HM&amp;FNART 102 — Arts &amp; Literature + Diversity DG.</li>
-        <li><b>Honors College:</b> CHC/GSMH.</li>
-        <li><b>Meal plan:</b> DC → YCMP.</li>
-      </ul>
-    </div>
 
-    <div class="card elev-sm elective-card">
-      <span class="card-title" style="font-size:13px">Tech Electives</span>
-      <div class="elective-row">
-        <span class="text-muted">BME</span>
-        <span id="bmeElectiveText" style="font-weight:500">0/5</span>
-        <div class="elective-track"><div class="elective-fill" id="bmeElectiveFill" style="width:0%"></div></div>
-        <span class="text-muted" id="bmeElectiveCr"></span>
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Open-source degree flowsheet</div>
+        <h1>Plan your degree, down to the credit.</h1>
+        <p class="hero-sub">
+          I built this to plan my own dual B.S. in Mechanical Engineering + Biomedical
+          Engineering at UMass Amherst — every term, every prerequisite, every technical
+          elective, tracked in one place instead of a scattered spreadsheet. It's a plain
+          Flask app with no database: fork it, swap in your own courses, and it's yours.
+        </p>
+        <div class="hero-ctas">
+          <a href="/plan" class="btn btn-primary">Open my plan →</a>
+          <a href="https://github.com/tvisha-nanda/capstone" target="_blank" rel="noopener" class="btn btn-secondary">View source on GitHub</a>
+        </div>
       </div>
-      <div class="elective-row">
-        <span class="text-muted">ME</span>
-        <span id="meElectiveText" style="font-weight:500">0/4</span>
-        <div class="elective-track"><div class="elective-fill" id="meElectiveFill" style="width:0%"></div></div>
-        <span class="text-muted" id="meElectiveCr"></span>
+
+      <div class="card elev-md snapshot">
+        <div class="snapshot-head">
+          <span class="card-kicker">Live example — my plan</span>
+        </div>
+        <div class="snapshot-ring-wrap">
+          <svg width="56" height="56" viewBox="0 0 36 36">
+            <circle class="snapshot-ring-track" cx="18" cy="18" r="15.5"></circle>
+            <circle class="snapshot-ring-fill" id="heroRingFill" cx="18" cy="18" r="15.5" stroke-dasharray="0 97.4"></circle>
+          </svg>
+          <div>
+            <div class="snapshot-pct" id="heroPct">0%</div>
+            <div class="text-muted" id="heroCredits" style="font-size:12px">0 / 0 credits</div>
+          </div>
+        </div>
+        <div class="snapshot-row">
+          <span class="text-muted">BME tech electives</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="snapshot-track"><div class="snapshot-fill" id="heroBmeFill" style="width:0%"></div></div>
+            <span id="heroBmeText" style="font-weight:500;font-size:12px">0/0</span>
+          </div>
+        </div>
+        <div class="snapshot-row" style="border-top:none;padding-top:0">
+          <span class="text-muted">ME tech electives</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="snapshot-track"><div class="snapshot-fill" id="heroMeFill" style="width:0%"></div></div>
+            <span id="heroMeText" style="font-weight:500;font-size:12px">0/0</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="grid" id="grid"></div>
+    <section class="section">
+      <h6 class="section-kicker">What it does</h6>
+      <h2>A flowsheet that keeps up with a real, messy plan.</h2>
+      <p class="section-lede">
+        Not a static PDF flowchart — courses move terms, requirements shift, and a
+        transfer credit or an honors thesis substitution shouldn't mean redrawing the
+        whole chart by hand.
+      </p>
+      <div class="feature-grid">
+        <div class="card feature-card">
+          <div class="feature-num">01</div>
+          <div class="card-title">Term-by-term flowsheet</div>
+          <p class="card-body">Collapsible term cards for the whole plan at a glance; expand any term for the full detail view.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-num">02</div>
+          <div class="card-title">Prereq &amp; co-req tracking</div>
+          <p class="card-body">Dependencies show up as tags right on the course, so a scheduling conflict is visible before it's a registration problem.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-num">03</div>
+          <div class="card-title">Technical elective counters</div>
+          <p class="card-body">Live progress bars against major-specific elective requirements — credits and course count, tracked separately per major.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-num">04</div>
+          <div class="card-title">One file, no database</div>
+          <p class="card-body">The whole plan is a Python list in <code>plan_data.py</code>. Edit courses, credits, and flags directly — nothing to migrate or seed.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="text-muted" style="margin-top:24px; padding-top:12px; border-top:1px solid var(--color-divider); font-size:11px;">
-      Not in this plan (tracked separately): BMED-ENG 414 — Senior Design I, BMED-ENG 415 — Senior Design II.
-    </div>
+    <section class="section">
+      <h6 class="section-kicker">Make it yours</h6>
+      <h2>Three files, and it's your degree instead of mine.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-index">1</div>
+          <div>
+            <div class="roadmap-title">Fork the repo</div>
+            <div class="roadmap-desc">Clone it, run <code>python app.py</code>, and you have the full dashboard running locally on port 5050.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-index">2</div>
+          <div>
+            <div class="roadmap-title">Edit <code>plan_data.py</code></div>
+            <div class="roadmap-desc">Swap in your own terms and courses — code, title, credits, prereqs, elective tags. The dashboard renders straight from this file.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-index">3</div>
+          <div>
+            <div class="roadmap-title">Restyle with <code>nocturne.css</code></div>
+            <div class="roadmap-desc">Every color, radius, and shadow is a CSS variable in one design-system file — change the palette without touching layout markup.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h6 class="section-kicker">Roadmap</h6>
+      <h2>Where it's headed</h2>
+      <div class="roadmap-list">
+        <div class="roadmap-item">
+          <div class="roadmap-status building">In progress</div>
+          <div>
+            <div class="roadmap-title">Edit courses in the dashboard itself</div>
+            <div class="roadmap-desc">Move, add, and adjust courses directly in the term view — no more hand-editing <code>plan_data.py</code> for day-to-day changes.</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-status idea">Planned</div>
+          <div>
+            <div class="roadmap-title">Upload a flowchart or transcript</div>
+            <div class="roadmap-desc">Drop in your program's PDF flowsheet or an unofficial transcript and have it generate a starting plan in this same UI — instead of building <code>plan_data.py</code> by hand.</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-status idea">Idea</div>
+          <div>
+            <div class="roadmap-title">Shareable plans</div>
+            <div class="roadmap-desc">A link you can send someone else in your program so they can start from your plan and adjust it to theirs.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Built by Tvisha Nanda — Flask + Nocturne, a from-scratch design system.</span>
+      <a href="https://github.com/tvisha-nanda/capstone" target="_blank" rel="noopener">github.com/tvisha-nanda/capstone</a>
+    </footer>
+
   </div>
 </div>
 
-<script src="app.js"></script>
+<script src="landing.js"></script>
 </body>
 </html>

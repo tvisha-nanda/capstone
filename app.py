@@ -10,6 +10,11 @@ def index():
     return send_from_directory(app.static_folder, "index.html")
 
 
+@app.route("/plan")
+def plan_page():
+    return send_from_directory(app.static_folder, "plan.html")
+
+
 @app.route("/api/plan")
 def plan():
     return jsonify(PLAN)
