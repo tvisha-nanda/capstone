@@ -3,32 +3,347 @@
     "label": "Fall 2027",
     "source": "Projected from Fall 2026 UMass Amherst sections (Five College schedule). Recheck when Fall 2027 posts in SPIRE.",
     "courses": {
-      "M&I-ENG 313": [
-        { "sec": "01", "type": "LEC", "days": ["Tu", "Th"], "start": "11:30", "end": "12:45", "pick": true }
-      ],
-      "M&I-ENG 395A": [
-        { "sec": "01", "type": "SEM", "days": ["M"], "start": "13:25", "end": "14:15", "pick": true }
-      ],
-      "M&I-ENG 510": [
-        { "sec": "01", "type": "LEC", "days": ["Tu", "Th"], "start": "14:30", "end": "15:45", "pick": true }
-      ],
-      "BMED-ENG 320": [
-        { "sec": "01", "type": "LEC", "days": ["Tu", "Th"], "start": "10:00", "end": "11:15", "pick": true },
-        { "sec": "01LL", "type": "LAB", "days": ["W"], "start": "09:05", "end": "09:55" },
-        { "sec": "01LM", "type": "LAB", "days": ["W"], "start": "10:10", "end": "11:00", "pick": true }
-      ],
-      "M&I-ENG 354": [
-        { "sec": "01", "type": "LEC", "days": ["M", "W", "F"], "start": "09:05", "end": "09:55", "pick": true }
-      ],
-      "M&I-ENG 402": [
-        { "sec": "01", "type": "LEC", "days": ["M", "W", "F"], "start": "12:20", "end": "13:10", "pick": true },
-        { "sec": "01LL", "type": "LAB", "days": ["Tu"], "start": "14:30", "end": "17:15" },
-        { "sec": "01LM", "type": "LAB", "days": ["W"], "start": "09:05", "end": "11:50" },
-        { "sec": "01LN", "type": "LAB", "days": ["W"], "start": "13:25", "end": "16:10", "pick": true },
-        { "sec": "01LQ", "type": "LAB", "days": ["Th"], "start": "14:30", "end": "17:15" },
-        { "sec": "01LR", "type": "LAB", "days": ["F"], "start": "09:05", "end": "11:50" },
-        { "sec": "01LS", "type": "LAB", "days": ["F"], "start": "13:25", "end": "16:10" }
-      ]
+      "M&I-ENG 313": {
+        "basis": "Fall 2026 listing",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "11:30",
+            "end": "12:45",
+            "pick": true
+          }
+        ]
+      },
+      "M&I-ENG 395A": {
+        "basis": "Fall 2026 listing",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "SEM",
+            "days": [
+              "M"
+            ],
+            "start": "13:25",
+            "end": "14:15",
+            "pick": true
+          }
+        ]
+      },
+      "M&I-ENG 510": {
+        "basis": "Fall 2026 listing",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "14:30",
+            "end": "15:45",
+            "pick": true
+          }
+        ]
+      },
+      "BMED-ENG 320": {
+        "basis": "Fall 2026 listing",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "10:00",
+            "end": "11:15",
+            "pick": true
+          },
+          {
+            "sec": "01LL",
+            "type": "LAB",
+            "days": [
+              "W"
+            ],
+            "start": "09:05",
+            "end": "09:55"
+          },
+          {
+            "sec": "01LM",
+            "type": "LAB",
+            "days": [
+              "W"
+            ],
+            "start": "10:10",
+            "end": "11:00",
+            "pick": true
+          }
+        ]
+      },
+      "M&I-ENG 354": {
+        "basis": "Fall 2026 listing",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "LEC",
+            "days": [
+              "M",
+              "W",
+              "F"
+            ],
+            "start": "09:05",
+            "end": "09:55",
+            "pick": true
+          }
+        ]
+      },
+      "M&I-ENG 402": {
+        "basis": "Fall 2026 listing",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "LEC",
+            "days": [
+              "M",
+              "W",
+              "F"
+            ],
+            "start": "12:20",
+            "end": "13:10",
+            "pick": true
+          },
+          {
+            "sec": "01LL",
+            "type": "LAB",
+            "days": [
+              "Tu"
+            ],
+            "start": "14:30",
+            "end": "17:15"
+          },
+          {
+            "sec": "01LM",
+            "type": "LAB",
+            "days": [
+              "W"
+            ],
+            "start": "09:05",
+            "end": "11:50"
+          },
+          {
+            "sec": "01LN",
+            "type": "LAB",
+            "days": [
+              "W"
+            ],
+            "start": "13:25",
+            "end": "16:10",
+            "pick": true
+          },
+          {
+            "sec": "01LQ",
+            "type": "LAB",
+            "days": [
+              "Th"
+            ],
+            "start": "14:30",
+            "end": "17:15"
+          },
+          {
+            "sec": "01LR",
+            "type": "LAB",
+            "days": [
+              "F"
+            ],
+            "start": "09:05",
+            "end": "11:50"
+          },
+          {
+            "sec": "01LS",
+            "type": "LAB",
+            "days": [
+              "F"
+            ],
+            "start": "13:25",
+            "end": "16:10"
+          }
+        ]
+      }
+    }
+  },
+  "Spring 3": {
+    "label": "Spring 2028",
+    "source": "Projected from recent UMass Amherst spring listings. Spring 2028 posts in SPIRE around October 2027; recheck then.",
+    "courses": {
+      "M&I-ENG 344": {
+        "basis": "Usual times, past terms",
+        "sections": [
+          {
+            "sec": "A",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "13:00",
+            "end": "14:15"
+          },
+          {
+            "sec": "B",
+            "type": "LEC",
+            "days": [
+              "M",
+              "W",
+              "F"
+            ],
+            "start": "10:10",
+            "end": "11:00"
+          },
+          {
+            "sec": "C",
+            "type": "LEC",
+            "days": [
+              "M",
+              "W",
+              "F"
+            ],
+            "start": "13:25",
+            "end": "14:15"
+          }
+        ]
+      },
+      "M&I-ENG 413": {
+        "basis": "Spring 2027 listing",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "08:30",
+            "end": "09:45"
+          }
+        ]
+      },
+      "ENGIN 351": {
+        "basis": "Fall 2025 listing; spring runs a similar spread",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "LEC",
+            "days": [
+              "M",
+              "W",
+              "F"
+            ],
+            "start": "09:05",
+            "end": "09:55"
+          },
+          {
+            "sec": "02",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "11:30",
+            "end": "12:45"
+          },
+          {
+            "sec": "03",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "10:00",
+            "end": "11:15"
+          },
+          {
+            "sec": "04",
+            "type": "LEC",
+            "days": [
+              "M",
+              "W",
+              "F"
+            ],
+            "start": "12:20",
+            "end": "13:10"
+          },
+          {
+            "sec": "05",
+            "type": "LEC",
+            "days": [
+              "M",
+              "W",
+              "F"
+            ],
+            "start": "13:25",
+            "end": "14:15"
+          }
+        ]
+      },
+      "ENGIN 351H": {
+        "basis": "Usual times, past terms (honors section)",
+        "sections": [
+          {
+            "sec": "H1",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "10:00",
+            "end": "11:15"
+          },
+          {
+            "sec": "H2",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "11:30",
+            "end": "12:45"
+          },
+          {
+            "sec": "H3",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "13:00",
+            "end": "14:15"
+          }
+        ]
+      },
+      "BMED-ENG 330": {
+        "basis": "Past spring terms",
+        "sections": [
+          {
+            "sec": "01",
+            "type": "LEC",
+            "days": [
+              "Tu",
+              "Th"
+            ],
+            "start": "14:30",
+            "end": "15:45"
+          }
+        ]
+      },
+      "M&I-ENG 443": {
+        "note": "Fall only. The MIE department lists Mechatronics as offered every fall, so it can't run in a spring term.",
+        "sections": []
+      }
     }
   }
 }

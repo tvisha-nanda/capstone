@@ -24,22 +24,31 @@ const overlaps = (a, b) =>
   a.days.some((d) => b.days.includes(d)) &&
   toMin(a.start) < toMin(b.end) && toMin(b.start) < toMin(a.end);
 
+// A course entry is { basis, note, sections } (or a bare sections array).
+const entryFor = (sched, code) => {
+  const e = sched.courses[code];
+  if (!e) return null;
+  return Array.isArray(e) ? { sections: e } : e;
+};
+
 // Collect sections for the courses in this term, tagged with course + component.
 function termSections(termData, sched) {
   const out = [];
   termData.courses.forEach((c) => {
     const code = normCode(c.code);
-    (sched.courses[code] || []).forEach((s) => out.push({ ...s, code }));
+    const e = entryFor(sched, code);
+    (e ? e.sections : []).forEach((s) => out.push({ ...s, code }));
   });
   return out;
 }
 
+const isOnly = (s, all) => all.filter((o) => o.code === s.code && o.type === s.type).length === 1;
+
 function clashesFor(sec, all) {
   // Fixed = the only option for its course + component, so it has to be taken.
-  const isFixed = (s) => all.filter((o) => o.code === s.code && o.type === s.type).length === 1;
   return all
     .filter((o) => o !== sec && o.code !== sec.code)
-    .filter((o) => isFixed(o) || (sec.pick && o.pick))
+    .filter((o) => isOnly(o, all) || (sec.pick && o.pick))
     .filter((o) => overlaps(sec, o))
     .map((o) => `${o.code} ${o.type === "LEC" ? "" : o.type.toLowerCase()}`.trim());
 }
@@ -60,16 +69,21 @@ function buildPopover(termData) {
   termData.courses.forEach((c) => {
     const code = normCode(c.code);
     const secs = all.filter((s) => s.code === code);
+    const e = entryFor(sched, code);
     html += `<div class="sched-course">
       <div class="sched-course-head"><span>${c.code}</span><span class="text-muted">${c.title}</span></div>`;
-    if (!secs.length) {
+    if (e && e.basis) html += `<div class="sched-basis">${e.basis}</div>`;
+    if (e && e.note) {
+      html += `<div class="sched-note">${e.note}</div>`;
+    } else if (!secs.length) {
       html += `<div class="text-muted sched-empty">No section data yet</div>`;
     } else {
       secs.forEach((s) => {
         const clash = clashesFor(s, all);
         let status = `<span class="sched-status open">Open</span>`;
         if (clash.length) status = `<span class="sched-status clash">Clashes: ${clash.join(", ")}</span>`;
-        else if (s.pick) status = `<span class="sched-status pick">Your pick</span>`;
+        else if (s.pick && !isOnly(s, all)) status = `<span class="sched-status pick">Your pick</span>`;
+        else if (isOnly(s, all)) status = `<span class="sched-status only">Only section</span>`;
         html += `<div class="sched-row${clash.length ? " is-clash" : ""}${s.pick ? " is-pick" : ""}">
           <span class="sched-sec">${s.sec}</span>
           <span class="sched-type">${s.type}</span>

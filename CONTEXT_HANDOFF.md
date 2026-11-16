@@ -8,6 +8,6 @@ Project: `/Users/tvishananda/degree-dashboard` — a personal degree-planning da
 
 **Current state:** BME tech electives 5/5, ME tech electives 4/4 (both exactly on target). Senior Design I/II (BMED-ENG 414/415) removed from the plan — Tvisha is doing Honors Thesis (499T/499P) instead, tracked as BME electives; a footer note flags this. Deployment scaffolding exists for both Render (`render.yaml`) and Vercel (`api/index.py`, `vercel.json`) but neither has actually been deployed yet — that requires Tvisha's own account login.
 
-**Section options:** hovering a term title (dotted underline) opens a popover listing every section option for that term's courses, with clashes against fixed meetings flagged. Data lives in `static/schedules.json` keyed by term name (`Fall 3` = Fall 2027); logic in `static/schedules.js`. Add a term by adding a key there.
+**Section options:** hovering a term title (dotted underline) opens a popover listing every section option for that term's courses, with clashes against fixed meetings flagged. Data lives in `static/schedules.json` keyed by term name (`Fall 3` = Fall 2027, `Spring 3` = Spring 2028); each course can carry a `basis` (where the times came from) and a `note` (shown in red, e.g. wrong-semester warnings); logic in `static/schedules.js`. Add a term by adding a key there.
 
 Read `plan_data.py`, `static/app.js`, and `static/index.html` directly for the exact current state — this file is just a summary, the code is the source of truth. Ask Tvisha what she wants to work on next.
