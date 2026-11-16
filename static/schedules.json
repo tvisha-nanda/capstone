@@ -1,0 +1,34 @@
+{
+  "Fall 3": {
+    "label": "Fall 2027",
+    "source": "Projected from Fall 2026 UMass Amherst sections (Five College schedule). Recheck when Fall 2027 posts in SPIRE.",
+    "courses": {
+      "M&I-ENG 313": [
+        { "sec": "01", "type": "LEC", "days": ["Tu", "Th"], "start": "11:30", "end": "12:45", "pick": true }
+      ],
+      "M&I-ENG 395A": [
+        { "sec": "01", "type": "SEM", "days": ["M"], "start": "13:25", "end": "14:15", "pick": true }
+      ],
+      "M&I-ENG 510": [
+        { "sec": "01", "type": "LEC", "days": ["Tu", "Th"], "start": "14:30", "end": "15:45", "pick": true }
+      ],
+      "BMED-ENG 320": [
+        { "sec": "01", "type": "LEC", "days": ["Tu", "Th"], "start": "10:00", "end": "11:15", "pick": true },
+        { "sec": "01LL", "type": "LAB", "days": ["W"], "start": "09:05", "end": "09:55" },
+        { "sec": "01LM", "type": "LAB", "days": ["W"], "start": "10:10", "end": "11:00", "pick": true }
+      ],
+      "M&I-ENG 354": [
+        { "sec": "01", "type": "LEC", "days": ["M", "W", "F"], "start": "09:05", "end": "09:55", "pick": true }
+      ],
+      "M&I-ENG 402": [
+        { "sec": "01", "type": "LEC", "days": ["M", "W", "F"], "start": "12:20", "end": "13:10", "pick": true },
+        { "sec": "01LL", "type": "LAB", "days": ["Tu"], "start": "14:30", "end": "17:15" },
+        { "sec": "01LM", "type": "LAB", "days": ["W"], "start": "09:05", "end": "11:50" },
+        { "sec": "01LN", "type": "LAB", "days": ["W"], "start": "13:25", "end": "16:10", "pick": true },
+        { "sec": "01LQ", "type": "LAB", "days": ["Th"], "start": "14:30", "end": "17:15" },
+        { "sec": "01LR", "type": "LAB", "days": ["F"], "start": "09:05", "end": "11:50" },
+        { "sec": "01LS", "type": "LAB", "days": ["F"], "start": "13:25", "end": "16:10" }
+      ]
+    }
+  }
+}

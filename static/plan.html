@@ -66,6 +66,27 @@
   }
   .elective-fill { height: 100%; background: #e0a458; }
   .elective-fill.over { background: #e06868; }
+  .card-title.has-sched { cursor: help; text-decoration: underline dotted var(--color-accent); text-underline-offset: 4px; }
+  .sched-pop {
+    position: fixed; z-index: 50; width: 440px; max-height: 70vh; overflow: auto;
+    display: flex; flex-direction: column; gap: 8px; padding: 12px 14px;
+    background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+  }
+  .sched-course { border-top: 1px solid var(--color-divider); padding-top: 6px; }
+  .sched-course-head { display: flex; gap: 8px; align-items: baseline; font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+  .sched-course-head .text-muted { font-weight: 400; font-size: 11px; }
+  .sched-row {
+    display: grid; grid-template-columns: 42px 34px 40px 130px 1fr; gap: 6px;
+    align-items: center; font-size: 11.5px; padding: 2px 6px; border-radius: var(--radius-sm);
+  }
+  .sched-row.is-pick { background: color-mix(in srgb, var(--color-accent) 14%, transparent); }
+  .sched-row.is-clash { opacity: 0.6; }
+  .sched-sec, .sched-type { color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+  .sched-status { font-size: 11px; justify-self: end; text-align: right; }
+  .sched-status.pick { color: var(--color-accent); }
+  .sched-status.clash { color: #e06868; }
+  .sched-status.open { color: #7fc8a0; }
+  .sched-empty { font-size: 11px; padding-left: 6px; }
 </style>
 </head>
 <body>
@@ -129,5 +150,6 @@
 </div>
 
 <script src="app.js"></script>
+<script src="schedules.js"></script>
 </body>
 </html>
